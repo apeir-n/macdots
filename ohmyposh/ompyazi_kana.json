@@ -1,0 +1,117 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "palette": {
+        "fuji_white": "#c5c9c5",
+        "old_white": "#7fb4ca",
+        "fuji_white2": "#dcd7ba",
+        "old_white2": "#c8c093",
+        "sumi_ink0": "#16161d",
+        "sumi_ink1": "#0d0c0c",
+        "sumi_ink2": "#181616",
+        "sumi_ink3": "#54545d",
+        "autumn_green": "#76946a",
+        "autumn_red": "#c4746e",
+        "wave_aqua1": "#6a9589",
+        "fuji_gray": "#a6a69c",
+        "oni_violet": "#a292a3",
+        "crystal_blue": "#8ba4b0",
+        "wave_aqua2": "#7aa89f",
+        "spring_green": "#8a9a7b",
+        "carp_yellow": "#e6c384",
+        "wave_red": "#e46876",
+        "peach_red": "#ff5d62"
+    },
+    "var": {
+        "Dir": "",
+        "Documents": " ",
+        "Downloads": " ",
+        "Duration": "\u231b",
+        "Exit": "\u21a9\ufe0f",
+        "GitHub": " ",
+        "home": " ",
+        "Host": "󰟀 ",
+        "LeftDelim": "",
+        "LeftSep": "",
+        "LeftSepRound": "",
+        "Music": " ",
+        "Pictures": " ",
+        "RightDelim": "",
+        "RightSep": "",
+        "RightSepRound": "",
+        "Tag": " ",
+        "Time": "󱣻 ",
+        "root": " ",
+        "ssh": " ",
+        "user": " "
+    },
+    "pwd": "osc7",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "template": "{{if .Root}}{{.Var.root}}{{else}}{{.Var.user}}{{end}}{{.UserName}} {{.Var.Host}}{{ .HostName }}{{ if .SSHSession }} {{.Var.ssh}}{{ end }}",
+                    "foreground": "p:sumi_ink1",
+                    "background": "p:crystal_blue",
+                    "type": "session",
+                    "style": "diamond"
+                },
+                {
+                    "properties": {
+                        "cache_duration": "none",
+                        "display_root": "true",
+                        "folder_icon": " ",
+                        "folder_separator_icon": "/",
+                        "home_icon": " ",
+                        "mapped_locations_enabled": "true",
+                        "mapped_locations": { "/Users/reillyshellito/*" : "" },
+                        "max_depth": 2,
+                        "max_width": 6,
+                        "mixed_threshold": 6,
+                        "style": "mixed"
+                    },
+                    "foreground": "transparent",
+                    "template": "<p:crystal_blue,p:sumi_ink1> {{.Var.Dir}} </><p:sumi_ink1,p:sumi_ink0>{{.Var.RightSep}}</><p:old_white,p:sumi_ink0> {{.PWD}}</><p:sumi_ink0,transparent>{{.Var.RightSep}}</>",
+                    "background": "p:sumi_ink1",
+                    "type": "path",
+                    "style": "diamond"
+                },
+                {
+                    "properties": {
+                        "branch_max_length": 35,
+                        "cache_duration": "none",
+                        "fetch_stash_count": true,
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true,
+                        "status_formats": {
+                            "Added": " %d",
+                            "Deleted": " %d",
+                            "Modified": " %d",
+                            "Untracked": " %d",
+                            "Unmerged": "󰰧 %d"
+                        }
+                    },
+                    "leading_diamond": "<background,transparent>    </>",
+                    "trailing_diamond": "",
+                    "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }} -> {{.Upstream}}{{ end }}{{ if .Working.Changed }}|<p:sumi_ink1> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }}{{ end }}{{ if .Staging.Changed }}| <p:sumi_ink3>{{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }}| \uf51e {{ .StashCount }}{{ end }} ",
+                    "foreground": "p:sumi_ink0",
+                    "type": "git",
+                    "style": "diamond",
+                    "background_templates": [
+                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#8ba4b0{{ end }}",
+                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#74b4ca{{{ end }}",
+                        "{{ if gt .Ahead 0 }}#a292a3{{ end }}",
+                        "{{ if gt .Behind 0 }}#a292a3{{ end }}"
+                    ]
+                }
+            ]
+        }
+    ],
+    "version": 3
+}

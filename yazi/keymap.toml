@@ -1,0 +1,92 @@
+[[mgr.prepend_keymap]]
+on = ["R"]
+run = '''
+shell --confirm --block '
+  ~/.config/yazi/plugins/reveal_in_finder.sh
+'
+'''
+desc = "Reveal in Finder"
+
+[[mgr.prepend_keymap]]
+on = "<Space>"
+run = '''
+shell '
+  file="$1"
+  case "$file" in
+    *.mp4|*.mov|*.mkv|*.avi|*.mpg|*.MP4|*.MOV|*.MKV|*.AVI|*.MPG)
+      open "$file" & sleep 0.3 && ~/.local/scripts/applesauce/center_quicktime.scpt
+      ;;
+    *)
+      qlmanage -p "$file" > /dev/null 2>&1
+      ;;
+  esac
+' -- $1
+'''
+desc = "hack-a-doo qlopener / vid preview"
+
+[[mgr.prepend_keymap]]
+on = "w"
+run = '''
+shell 'paperplane "$1"' -- $1
+'''
+desc = "wallpaper_set"
+
+[[mgr.prepend_keymap]]
+on  = [ "c", "p" ]
+run = "copy dirname"
+desc = "copypath"
+
+[[mgr.prepend_keymap]]
+on  = [ "c", "d" ]
+run = "plugin zoxide"
+desc = "changedir"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "n" ]
+run = "cd ~/nursery"
+desc = "go_nursery"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "s" ]
+run = "cd ~/.local/scripts"
+desc = "go_scripts"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "o" ]
+run = 'cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault'
+desc = "go_obsidianvault"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "l" ]
+run = "cd ~/.local"
+desc = "go_local"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "w" ]
+run = "cd ~/themestuff/wallpapers"
+desc = "go_wallpapers"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "p" ]
+run = "cd ~/.cache/wal"
+desc = "go_walclrs"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "t" ]
+run = "cd ~/Music/tides"
+desc = "go_tidal"
+
+[[mgr.prepend_keymap]]
+on  = "H"
+run = "tab_switch -1 --relative"
+desc = "prevtab"
+
+[[mgr.prepend_keymap]]
+on  = "L"
+run = "tab_switch 1 --relative"
+desc = "nexttab"
+
+#[[mgr.prepend_keymap]]
+#on  = [ "+", "x" ]
+#run = "shell --block chmod +x %f"
+#desc = "chmod+x"

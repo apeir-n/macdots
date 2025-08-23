@@ -1,0 +1,124 @@
+#themes
+#theme = ayu
+#theme = Ayu Mirage
+#theme = Broadcast
+#theme = catppuccin-mocha
+#theme = Chalk
+#theme = Chalkboard
+#theme = Ciapre
+#theme = CobaltNext
+#theme = Everforest Dark - Hard
+#theme = GruvboxDark
+#theme = gruvbox-material
+#theme = Horizon
+#theme = jubi
+#theme = Kanagawa Dragon
+#theme = Kanagawa Wave
+#theme = nightfox
+#theme = nord-wave
+#theme = rose-pine
+#theme = Twilight
+theme = pywal
+
+#fonts
+#font-family = Sono Nerd Font
+#font-family = GoogleSansCode Nerd Font
+#font-family = iMWritingMono Nerd Font
+font-family = JetBrainsMono Nerd Font
+#font-family = DaddyTimeMono Nerd Font
+#font-family = IosevkaTermSlab Nerd Font
+#font-family = Monofur Nerd Font
+#font-family = Terminess Nerd Font
+#font-family = SpaceMono Nerd Font
+#font-family = ProFontWindows Nerd Font
+#font-family = Monoid Nerd Font
+#font-family = Hack Nerd Font
+#font-family = GohuFont Nerd Font
+#font-family = DepartureMono Nerd Font
+#font-family = CaskaydiaCove Nerd Font
+#font-family = 3270 Nerd Font
+#font-family = ProggyClean Nerd Font
+#font-family = UbuntuMono Nerd Font
+#font-family =
+#font-family =
+font-size = 16
+#font-size = 17
+#font-size = 18
+#font-size = 20
+
+#terminal
+auto-update = download
+background-opacity = 0.80
+background-blur = 60
+macos-titlebar-style = hidden
+window-padding-x = 12
+window-padding-y = 12
+cursor-opacity = 0.5
+unfocused-split-opacity = 0.6
+macos-option-as-alt = true
+
+#unbinds
+keybind = super+alt+shift+w=unbind
+keybind = super+alt+w=unbind
+keybind = super+alt+up=unbind
+keybind = super+alt+down=unbind
+keybind = super+alt+right=unbind
+keybind = super+alt+left=unbind
+keybind = super+ctrl+equal=unbind
+keybind = super+ctrl+up=unbind
+keybind = super+ctrl+down=unbind
+keybind = super+ctrl+right=unbind
+keybind = super+ctrl+left=unbind
+keybind = super+shift+d=unbind
+keybind = super+shift+w=unbind
+keybind = super+shift+left_bracket=unbind
+keybind = super+shift+right_bracket=unbind
+keybind = ctrl+shift+tab=unbind
+keybind = super+physical:one=unbind
+keybind = super+physical:two=unbind
+keybind = super+physical:three=unbind
+keybind = super+physical:four=unbind
+keybind = super+physical:five=unbind
+keybind = super+physical:six=unbind
+keybind = super+physical:seven=unbind
+keybind = super+physical:eight=unbind
+keybind = super+physical:nine=unbind
+keybind = super+left_bracket=unbind
+keybind = super+right_bracket=unbind
+
+#keybindings
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right
+
+keybind = cmd+shift+h=new_split:left
+keybind = cmd+shift+j=new_split:down
+keybind = cmd+shift+k=new_split:up
+keybind = cmd+shift+l=new_split:right
+
+keybind = cmd+ctrl+shift+h=resize_split:left,30
+keybind = cmd+ctrl+shift+j=resize_split:down,30
+keybind = cmd+ctrl+shift+k=resize_split:up,30
+keybind = cmd+ctrl+shift+l=resize_split:right,30
+
+keybind = global:cmd+shift+semicolon=toggle_quick_terminal
+quick-terminal-autohide = true
+quick-terminal-position = center
+
+keybind = cmd+g=scroll_to_top
+keybind = cmd+shift+g=scroll_to_bottom
+keybind = cmd+u=scroll_page_lines:-25
+keybind = cmd+d=scroll_page_lines:25
+keybind = cmd+ctrl+k=scroll_page_lines:-1
+keybind = cmd+ctrl+j=scroll_page_lines:1
+keybind = cmd+x=close_surface
+
+keybind = cmd+a=select_all
+#keybind = ctrl+shift+h=adjust_selection:left # taken by nvim win resize
+#keybind = ctrl+shift+j=adjust_selection:down
+#keybind = ctrl+shift+k=adjust_selection:up
+#keybind = ctrl+shift+l=adjust_selection:right
+keybind = cmd+y=copy_to_clipboard
+keybind = cmd+p=paste_from_clipboard
+keybind = cmd+s=clear_screen

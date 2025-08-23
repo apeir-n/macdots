@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source $HOME/.cache/wal/sketchybar_wal.sh
+
+options=(
+    style=round
+    width=4.5
+    hidpi=on
+    active_color=$color7
+    inactive_color=$background
+)
+
+borders "${options[@]}"
