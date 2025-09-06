@@ -5,7 +5,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PATH="/Users/wisdmm/.local/bin:$PATH"
 export PATH="/Applications/SuperCollider.app/Contents/MacOS:$PATH"
-export MANPAGER="less -R --use-color -Dd+M -Du+B -DP+G -Ds+C"
+#export MANPAGER="less -R --use-color -Dd+M -Du+B -DP+G -Ds+C"
 #export MANPATH="$HOME/.local/share/man${MANPATH:+:${MANPATH}}"
 #export MANPAGER="nvim +Man!"
 
@@ -49,6 +49,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias man="batman"
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias russycheck="~/.local/scripts/snugglecheck.sh"
 alias diaperchange="~/.local/scripts/diaperchange.sh"
@@ -65,6 +66,8 @@ alias news='hackernews_tui'
 alias pc='cd ~/.cache/wal && y'
 alias colors='cat ~/.cache/wal/colors | pastel format'
 alias scripts='cd ~/.local/scripts && y'
+alias stars='astroterm -Cc -s 400 -a 41.1081 -o -81.5148'
+alias stors='astroterm -Cuc -s 400 -a 41.1081 -o -81.5148'
 
 #etc
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh

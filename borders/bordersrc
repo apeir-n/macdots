@@ -8,6 +8,7 @@ options=(
     hidpi=on
     active_color=$color7
     inactive_color=$background
+    blacklist="XQuartz,xquartz,X11,xeyes"
 )
 
 borders "${options[@]}"

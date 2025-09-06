@@ -13,6 +13,7 @@ require("themery").setup({
         "kanso",
         --"vinyl",
         --"papercolor-theme",
+        "wal",
     },
     livePreview = true,
 })

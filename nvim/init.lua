@@ -28,6 +28,7 @@ Plug('uloco/bluloco.nvim')
 Plug('webhooked/kanso.nvim')
 Plug('kamwitsta/vinyl.nvim')
 Plug('NLKNguyen/papercolor-theme')
+Plug('dylanaraps/wal.vim')
 
 --plugins
 Plug('nvim-tree/nvim-web-devicons')
