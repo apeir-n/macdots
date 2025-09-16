@@ -3,7 +3,7 @@ after-login-command = []
 
 after-startup-command = [
     'exec-and-forget borders',
-    'exec-and-forget sketchybar',
+    #'exec-and-forget sketchybar',
 ]
 
 exec-on-workspace-change = [

@@ -78,20 +78,23 @@ source "$XDG_DATA_HOME/ghcup/env"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
+if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+    NEWLINE=$'\n'
+    PROMPT="${NEWLINE}%K{1}%F{15} %D{%_I:%M%p} %K{3} %n %K{5} %~ %f%k ❯ "
+else
+    eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
 fi
 
 function c() {
-  ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
+    ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
 }
 
 function s() {
-  ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
+    ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
 }
 
 function note() {
-  nvim ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault/"$1".md
+    nvim "$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault/'$1'.md"
 }
 
 function y() {
@@ -101,14 +104,6 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-
-function oy() {
-    zle reset-prompt
-    y
-    zle redisplay
-}
-zle -N oy
-bindkey '^y' oy
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 ZSH_HIGHLIGHT_STYLES[default]="fg=white"
@@ -126,3 +121,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-1]="fg=green"
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=blue"
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=magenta"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/wisdmm/.lmstudio/bin"
+# End of LM Studio CLI section
+

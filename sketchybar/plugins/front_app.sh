@@ -64,7 +64,6 @@ if [ "$SENDER" = "front_app_switched" ]; then
             ;;
         "System Settings")
             ICON="󰒓"
-            LABEL="Diaper Settings"
             ;;
         "Photos")
             ICON=""

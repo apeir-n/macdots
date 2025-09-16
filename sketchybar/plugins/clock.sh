@@ -38,5 +38,5 @@ case $CLOCK in
     12) ICON="󱑊 " ;;
 esac
 
-#sketchybar --set "$NAME" icon="$ICON" label="$(date '+%I:%M%p' | tr '[:upper:]' '[:lower:]')"
-sketchybar --set "$NAME" icon="$ICON" label="$(date '+%I:%M %p')"
+sketchybar --set "$NAME" icon="$ICON" label="$(date '+%I:%M%p' | tr '[:upper:]' '[:lower:]')"
+#sketchybar --set "$NAME" icon="$ICON" label="$(date '+%I:%M %p')"
