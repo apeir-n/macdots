@@ -1,24 +1,6 @@
 #!/bin/bash
 
-source $HOME/.cache/wal/sketchybar_wal.sh
-
-case "$SENDER" in
-    "mouse.entered")
-        sketchybar  --animate tanh 15                       \
-                    --set "$NAME"                           \
-                        background.color=$color7            \
-                        icon.color=$background              \
-                        label.color=$background
-        ;;
-    "mouse.exited")
-        sketchybar  --animate tanh 15                       \
-                    --set "$NAME"                           \
-                        background.color=$background        \
-                        background.border_color=$color7     \
-                        icon.color=$color7                  \
-                        label.color=$color7
-        ;;
-esac
+source $HOME/.config/sketchybar/plugins/hover.sh
 
 TITLE=$(osascript -e 'tell application "Music" to if it is running and player state is playing then name of current track')
 ARTIST=$(osascript -e 'tell application "Music" to if it is running and player state is playing then artist of current track')
