@@ -79,8 +79,10 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
 if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
-    NEWLINE=$'\n'
-    PROMPT="${NEWLINE}%K{1}%F{15} %D{%_I:%M%p} %K{3} %n %K{5} %~ %f%k ❯ "
+    #NEWLINE=$'\n'
+    #PROMPT="${NEWLINE}%K{1}%F{15} %D{%_I:%M%p} %K{3} %n %K{5} %~ %f%k ❯ "
+    NL=$'\n'
+    PROMPT="${NL}%F{9}%f%K{9}%F{0}%k%F{9}%f %F{10}%f%K{10}%F{0}%D{%I:%M%p}%k%F{10}%f %F{11}%f%K{11}%F{0}%~%k%F{11}%f ${NL}%F{13}%f%K{13}%F{0}%n%k%F{13}%f %F{8}❯%f "
 else
     eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
 fi
