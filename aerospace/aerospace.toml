@@ -130,14 +130,13 @@ alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-g = 'exec-and-forget open -a /Applications/Ghostty.app'
 alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 alt-m = 'exec-and-forget open -a /Applications/Max.app'
-#alt-b = 'exec-and-forget open -a /Applications/Opera.app'
 alt-z = 'exec-and-forget open -a /Applications/Zen.app'
 alt-backslash = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-f = 'exec-and-forget open -a Finder'
+alt-shift-space = 'exec-and-forget paper &'
 
 alt-tab = 'workspace-back-and-forth'
 alt-x = 'close'
-#alt-q = 'exec-and-forget osascript -e "tell application \"app\" to quit"'
 
 # ~ service mode ~
 alt-shift-semicolon = 'mode service'
@@ -147,9 +146,9 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
-space = ['exec-and-forget paper', 'mode main']
 s = ['exec-and-forget sketchybar --reload', 'mode main']
-w = ['exec-and-forget ~/.local/scripts/applesauce/wp_browse.scpt', 'mode main']
+b = ['exec-and-forget borders', 'mode main']
+space = ['exec-and-forget ~/.local/scripts/applesauce/wp.scpt', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']

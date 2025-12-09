@@ -1,0 +1,9 @@
+[open]
+prepend_rules = [
+    { name = "*.xpm", use = "edit" },
+]
+
+[plugin]
+prepend_previewers = [
+    { name = "*.xpm", run = "code" },
+]

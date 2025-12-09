@@ -1,6 +1,5 @@
 require("themery").setup({
     themes = {
-        "ayu",
         "edge",
         "everforest",
         "gruvbox-material",
@@ -8,12 +7,7 @@ require("themery").setup({
         "kanagawa",
         "rose-pine",
         "tokyonight",
-        "bamboo",
-        --"bluloco",
         "kanso",
-        --"vinyl",
-        --"papercolor-theme",
-        "wal",
     },
     livePreview = true,
 })

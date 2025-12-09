@@ -5,7 +5,7 @@ shell --confirm --block '
   ~/.config/yazi/plugins/reveal_in_finder.sh
 '
 '''
-desc = "Reveal in Finder"
+desc = "reveal_finder"
 
 [[mgr.prepend_keymap]]
 on = "<Space>"
@@ -32,6 +32,13 @@ shell 'paperplane "$1"' -- $1
 desc = "wallpaper_set"
 
 [[mgr.prepend_keymap]]
+on = "N"
+run = '''
+shell 'nsxiv "$1"' -- $1
+'''
+desc = "nsxiv_open"
+
+[[mgr.prepend_keymap]]
 on  = [ "c", "p" ]
 run = "copy dirname"
 desc = "copypath"
@@ -43,8 +50,13 @@ desc = "changedir"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "n" ]
-run = "cd ~/nursery"
+run = "cd ~/.nursery"
 desc = "go_nursery"
+
+[[mgr.prepend_keymap]]
+on  = [ "g", "b" ]
+run = "cd ~/.baby"
+desc = "go_baby"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "s" ]
@@ -54,7 +66,7 @@ desc = "go_scripts"
 [[mgr.prepend_keymap]]
 on  = [ "g", "o" ]
 run = 'cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault'
-desc = "go_obsidianvault"
+desc = "go_obsidian"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "l" ]
@@ -63,7 +75,7 @@ desc = "go_local"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "w" ]
-run = "cd ~/themestuff/wallpapers"
+run = "cd ~/Pictures/wallpapers"
 desc = "go_wallpapers"
 
 [[mgr.prepend_keymap]]

@@ -11,19 +11,28 @@ type = 'prompt'
 alignment = 'left'
 newline = true
 
+#[[blocks.segments]]
+#leading_diamond = ''
+#trailing_diamond = ' '
+#template = '{{.Icon}}'
+#foreground = 'black'
+#background = 'lightGreen'
+#type = 'os'
+#style = 'diamond'
+
 [[blocks.segments]]
 leading_diamond = ''
 trailing_diamond = ' '
-template = '{{.Icon}}'
+template = ''
 foreground = 'black'
 background = 'lightGreen'
-type = 'os'
+type = 'text'
 style = 'diamond'
 
 [[blocks.segments]]
 leading_diamond = ''
 trailing_diamond = ' '
-template = '  {{ .Name }}'
+template = '  {{.Name}}'
 foreground = 'black'
 background = 'lightYellow'
 type = 'shell'
@@ -32,7 +41,16 @@ style = 'diamond'
 [[blocks.segments]]
 leading_diamond = ''
 trailing_diamond = ' '
-template = ' ram: {{ round .PhysicalPercentUsed .Precision }}%'
+template = '  {{.UserName}}'
+foreground = 'black'
+background = 'lightRed'
+type = 'text'
+style = 'diamond'
+
+[[blocks.segments]]
+leading_diamond = ''
+trailing_diamond = ' '
+template = '  {{ round .PhysicalPercentUsed .Precision }}%'
 foreground = 'black'
 background = 'lightBlue'
 type = 'sysinfo'
@@ -41,7 +59,7 @@ style = 'diamond'
 [[blocks.segments]]
 leading_diamond = ''
 trailing_diamond = ''
-template = ' {{ .FormattedMs }}'
+template = '  {{ .FormattedMs }}'
 foreground = 'black'
 background = 'lightMagenta'
 type = 'executiontime'
@@ -75,30 +93,26 @@ alignment = 'left'
 newline = true
 
 [[blocks.segments]]
-template = '╭─'
+template = '╭──'
 type = 'text'
 style = 'plain'
 
 [[blocks.segments]]
-template = '   {{ .CurrentDate | date .Format }} |'
+template = '  {{ .CurrentDate | date .Format }} |'
 type = 'time'
 style = 'plain'
 [blocks.segments.properties]
 time_format = ' 03:04pm'
 
-[[blocks.segments]]
-template = '  '
-type = 'root'
-style = 'plain'
+#[[blocks.segments]]
+#template = '  '
+#type = 'root'
+#style = 'plain'
 
 [[blocks.segments]]
-template = ' {{ .Path }}'
+template = ' {{ trunc 60 .PWD }}'
 type = 'path'
 style = 'plain'
-[blocks.segments.properties]
-folder_icon = ' '
-folder_separator_icon = '   '
-home_icon = ' '
 
 [[blocks]]
 type = 'prompt'

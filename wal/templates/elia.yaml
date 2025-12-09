@@ -1,0 +1,9 @@
+name: pywal
+primary: '{color4}'
+secondary: '{color1}'
+accent: '{color2}'
+background: '{color0}'
+surface: '{color0}'
+error: '{color6}'
+success: '{color5}'
+warning: '{color3}'

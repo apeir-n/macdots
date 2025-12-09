@@ -107,6 +107,12 @@ if [ "$SENDER" = "front_app_switched" ]; then
         "Zen")
             ICON=""
             ;;
+        "X11")
+            ICON=""
+            ;;
+        "XQuartz")
+            ICON=""
+            ;;
     esac
 
     sketchybar --animate exp 5 --set "$NAME" icon="$ICON" label="$LABEL"

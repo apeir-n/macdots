@@ -40,7 +40,6 @@ bindkey '^L' autosuggest-accept
 alias ls="eza --icons --group-directories-first --color=auto --oneline --all"
 alias ll="ls -lah"
 alias la="ls -A"
-alias l="ls -CF"
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
@@ -51,41 +50,39 @@ alias rm="rm -i"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias man="batman"
 alias brewup="brew update && brew upgrade && brew cleanup"
-alias russycheck="~/.local/scripts/snugglecheck.sh"
-alias diaperchange="~/.local/scripts/diaperchange.sh"
-alias wp='paper'
-alias zz='nvim ~/.zshrc'
-alias rz='source ~/.zshrc'
-alias clock='CONF_PATH=$HOME/.config/clock-rs/conf.toml clock-rs'
-alias toys='~/.local/scripts/toybox.sh'
-alias life='game_of_life'
+alias zz="nvim ~/.zshrc"
+alias rz="source ~/.zshrc"
+alias clock="CONF_PATH=$HOME/.config/clock-rs/conf.toml clock-rs"
+alias toys="~/.nursery/scripts/toybox.sh"
+alias life="game_of_life"
 alias o="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault && y"
 alias op="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault/__planner && y"
-alias synco='obsidian_sync'
-alias news='hackernews_tui'
-alias pc='cd ~/.cache/wal && y'
-alias colors='cat ~/.cache/wal/colors | pastel format'
-alias scripts='cd ~/.local/scripts && y'
-alias stars='astroterm -Cc -s 400 -a 41.1081 -o -81.5148'
-alias stors='astroterm -Cuc -s 400 -a 41.1081 -o -81.5148'
+alias news="hackernews_tui"
+alias pc="cd ~/.cache/wal && y"
+alias colors="cat ~/.cache/wal/colors | pastel format"
+alias scripts="cd ~/.local/scripts && y"
+alias wp="cd ~/Pictures/wallpapers && y"
+alias stars="astroterm -Cc -s 400 -a 41.1081 -o -81.5148"
+alias stors="astroterm -Cuc -s 400 -a 41.1081 -o -81.5148"
+alias cr="cargo run"
+alias ff="fastfetch"
+alias dadda="~/.local/ai/SillyTavern-Launcher/launcher.sh"
+alias baby="cd ~/.baby && y"
+alias xini="nvim ~/.xinitrc"
+alias xres="nvim ~/.Xresources"
+alias beget="sudo make clean install && make clean"
+alias suck="cd ~/.local/src/suckless && y"
+alias src="cd ~/.local/src && y"
+alias proj="cd ~/.local/projects && y"
 
 #etc
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source <(fzf --zsh)
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source <(fzf --zsh)
 source "$XDG_DATA_HOME/ghcup/env"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
-
-if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
-    #NEWLINE=$'\n'
-    #PROMPT="${NEWLINE}%K{1}%F{15} %D{%_I:%M%p} %K{3} %n %K{5} %~ %f%k ❯ "
-    NL=$'\n'
-    PROMPT="${NL}%F{9}%f%K{9}%F{0}%k%F{9}%f %F{10}%f%K{10}%F{0}%D{%I:%M%p}%k%F{10}%f %F{11}%f%K{11}%F{0}%~%k%F{11}%f ${NL}%F{13}%f%K{13}%F{0}%n%k%F{13}%f %F{8}❯%f "
-else
-    eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
-fi
 
 function c() {
     ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
@@ -95,8 +92,8 @@ function s() {
     ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
 }
 
-function note() {
-    nvim "$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault/'$1'.md"
+function v() {
+    ${EDITOR:-nvim} "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
 }
 
 function y() {
@@ -128,3 +125,18 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=magenta"
 export PATH="$PATH:/Users/wisdmm/.lmstudio/bin"
 # End of LM Studio CLI section
 
+case "$TERM" in
+    "st-256color")
+        source "$HOME/.local/scripts/prompta"
+        ;;
+    "xterm-256color")
+        source "$HOME/.local/scripts/prompti"
+        ;;
+    "xterm")
+        local nl=$'\n'
+        PROMPT="${nl}%K{1}%F{0} %D{%I:%M} %K{3} zsh %K{4} %n %K{5} %m %f%k${nl}%F{7}┌── %~${nl}└─%f "
+        ;;
+    *)
+        eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
+        ;;
+esac

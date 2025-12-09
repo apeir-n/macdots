@@ -10,7 +10,6 @@ require("obsidian").setup {
     
     new_notes_location = 'current_dir',
     preferred_link_style = 'wiki',
-    disable_frontmatter = true,
     templates = { folder = 'templates' },
     
     follow_url_func = function(url)
@@ -21,6 +20,7 @@ require("obsidian").setup {
         vim.ui.open(img)
     end,
     
+    frontmatter = { enabled = false },
     picker = { name = 'telescope.nvim' },
     open_notes_in = 'current',
     ui = { enable = false },

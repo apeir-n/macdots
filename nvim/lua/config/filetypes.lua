@@ -5,6 +5,7 @@ vim.filetype.add({
         scpt = "applescript",
         maxstx = "json",
         maxtheme = "json",
+        tal = "uxntal",
     },
 })
 

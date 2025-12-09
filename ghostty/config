@@ -21,10 +21,14 @@
 theme = pywal
 
 #fonts
+#font-family = IoTerminaMindless Nerd Font
+#font-family = IoTerminaMind Nerd Font
+font-family = IoTermina Nerd Font
+#font-family = Ioskeley Mono
+#font-family = JetBrainsMono Nerd Font
 #font-family = Sono Nerd Font
 #font-family = GoogleSansCode Nerd Font
 #font-family = iMWritingMono Nerd Font
-font-family = JetBrainsMono Nerd Font
 #font-family = DaddyTimeMono Nerd Font
 #font-family = IosevkaTermSlab Nerd Font
 #font-family = Monofur Nerd Font
@@ -82,10 +86,10 @@ keybind = super+left_bracket=unbind
 keybind = super+right_bracket=unbind
 
 #keybindings
-keybind = cmd+h=goto_split:left
-keybind = cmd+j=goto_split:down
-keybind = cmd+k=goto_split:up
-keybind = cmd+l=goto_split:right
+keybind = cmd+ctrl+h=goto_split:left
+keybind = cmd+ctrl+j=goto_split:down
+keybind = cmd+ctrl+k=goto_split:up
+keybind = cmd+ctrl+l=goto_split:right
 
 keybind = cmd+shift+h=new_split:left
 keybind = cmd+shift+j=new_split:down
@@ -105,8 +109,8 @@ keybind = cmd+g=scroll_to_top
 keybind = cmd+shift+g=scroll_to_bottom
 keybind = cmd+u=scroll_page_lines:-25
 keybind = cmd+d=scroll_page_lines:25
-keybind = cmd+ctrl+k=scroll_page_lines:-1
-keybind = cmd+ctrl+j=scroll_page_lines:1
+keybind = cmd+k=scroll_page_lines:-1
+keybind = cmd+j=scroll_page_lines:1
 keybind = cmd+x=close_surface
 
 keybind = cmd+a=select_all
