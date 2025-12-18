@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 #env
 export EDITOR="nvim"
 export VISUAL="nvim"
