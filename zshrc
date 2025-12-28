@@ -72,6 +72,7 @@ alias beget="sudo make clean install && make clean"
 alias suck="cd ~/.local/src/suckless && y"
 alias src="cd ~/.local/src && y"
 alias proj="cd ~/.local/projects && y"
+alias pa="ping apple.com"
 
 #etc
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh

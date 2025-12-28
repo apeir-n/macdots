@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.config/sketchybar/plugins/hover.sh
+source "$HOME/.config/sketchybar/plugins/hover.sh"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"

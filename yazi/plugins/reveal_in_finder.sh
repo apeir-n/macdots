@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-FILE_PATH="$1"
+filepath="$1"
 
-if [ -f "$FILE_PATH" ]; then
-  DIR_PATH="$(dirname "$FILE_PATH")"
+if [ -f "$filepath" ]; then
+  dir="$(dirname "$filepath")"
 else
-  DIR_PATH="$FILE_PATH"
+  dir="$filepath"
 fi
 
-open "$DIR_PATH"
+open "$dir"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.config/sketchybar/plugins/hover.sh
+source "$HOME/.config/sketchybar/plugins/hover.sh"
 
 if [ "$SENDER" = "front_app_switched" ]; then
     ICON="" # default icon

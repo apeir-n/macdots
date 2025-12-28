@@ -1,8 +1,8 @@
 [[mgr.prepend_keymap]]
-on = ["R"]
+on = "R"
 run = '''
 shell --confirm --block '
-  ~/.config/yazi/plugins/reveal_in_finder.sh
+    ~/.config/yazi/plugins/reveal_in_finder.sh
 '
 '''
 desc = "reveal_finder"
@@ -11,42 +11,56 @@ desc = "reveal_finder"
 on = "<Space>"
 run = '''
 shell '
-  file="$1"
-  case "$file" in
-    *.mp4|*.mov|*.mkv|*.avi|*.mpg|*.MP4|*.MOV|*.MKV|*.AVI|*.MPG)
-      open "$file" & sleep 0.3 && ~/.local/scripts/applesauce/center_quicktime.scpt
-      ;;
-    *)
-      qlmanage -p "$file" > /dev/null 2>&1
-      ;;
-  esac
+    ~/.config/yazi/plugins/hackadoodle_ql.sh
 ' -- $1
 '''
-desc = "hack-a-doo qlopener / vid preview"
+desc = "quicklook"
 
 [[mgr.prepend_keymap]]
 on = "w"
 run = '''
-shell 'paperplane "$1"' -- $1
+shell '
+    paperplane "$1"
+' -- $1
 '''
 desc = "wallpaper_set"
 
 [[mgr.prepend_keymap]]
 on = "N"
 run = '''
-shell 'nsxiv "$1"' -- $1
+shell '
+    nsxiv --anti-alias=no "$1"
+' -- $1
 '''
 desc = "nsxiv_open"
 
 [[mgr.prepend_keymap]]
+on = "'"
+run = '''
+shell --block '
+    vim "$1"
+' -- $1
+'''
+desc = "vim_open"
+
+[[mgr.prepend_keymap]]
+on  = [ "+", "x" ]
+run = '''
+shell '
+    chmod +x "$1"
+' -- $1
+'''
+desc = "chmodx"
+
+[[mgr.prepend_keymap]]
 on  = [ "c", "p" ]
 run = "copy dirname"
-desc = "copypath"
+desc = "copy_path"
 
 [[mgr.prepend_keymap]]
 on  = [ "c", "d" ]
 run = "plugin zoxide"
-desc = "changedir"
+desc = "change_dir"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "n" ]
@@ -81,7 +95,7 @@ desc = "go_wallpapers"
 [[mgr.prepend_keymap]]
 on  = [ "g", "p" ]
 run = "cd ~/.cache/wal"
-desc = "go_walclrs"
+desc = "go_pywal"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "t" ]
@@ -97,8 +111,3 @@ desc = "prevtab"
 on  = "L"
 run = "tab_switch 1 --relative"
 desc = "nexttab"
-
-#[[mgr.prepend_keymap]]
-#on  = [ "+", "x" ]
-#run = "shell --block chmod +x %f"
-#desc = "chmod+x"

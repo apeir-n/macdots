@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.config/sketchybar/plugins/hover.sh
+source "$HOME/.config/sketchybar/plugins/hover.sh"
 
 CLOCK=$(date '+%I')
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.cache/wal/sketchybar_wal.sh
+source "$HOME/.cache/wal/sketchybar_wal.sh"
 
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     sketchybar  --animate tanh 10                       \

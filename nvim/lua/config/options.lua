@@ -6,8 +6,8 @@ local options = {
     cmdheight = 0,
     wrap = false,
     linebreak = true,
-    mouse = "a",
-    clipboard = "unnamedplus",
+    mouse = 'a',
+    clipboard = 'unnamedplus',
     history = 100,
     swapfile = false,
     backup = false,
@@ -23,21 +23,24 @@ local options = {
     tabstop = 4,
     shiftwidth = 4,
     expandtab = true,
-    foldmethod = "expr",
+    foldmethod = 'expr',
     foldlevel = 99,
-    foldexpr = "nvim_treesitter#foldexpr()",
+    foldexpr = 'nvim_treesitter#foldexpr()',
     termguicolors = true,
     ignorecase = true,
     smartcase = true,
     conceallevel = 0,
-    concealcursor = "nc",
-    splitkeep = "screen",
+    concealcursor = 'nc',
+    splitkeep = 'screen',
 }
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+vim.cmd('set completeopt+=noselect')
+vim.o.winborder = 'single'
 vim.o.showtabline = 1
-vim.opt.fillchars:append({ eob = " " })
+vim.opt.fillchars:append({ eob = ' ' })
 vim.diagnostic.config({ signs = false })
+vim.g.have_nerd_font = true

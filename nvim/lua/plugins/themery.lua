@@ -1,13 +1,11 @@
-require("themery").setup({
+require('themery').setup({
     themes = {
-        "edge",
-        "everforest",
-        "gruvbox-material",
-        "sonokai",
-        "kanagawa",
-        "rose-pine",
-        "tokyonight",
-        "kanso",
+        'edge',
+        'sonokai',
+        'everforest',
+        'gruvbox-material',
+        'kanagawa',
+        'kanso',
     },
     livePreview = true,
 })
