@@ -58,17 +58,17 @@ vim.api.nvim_create_autocmd('ColorScheme', {
                     }
                 end),
                 line.spacer(),
-                    ---- shows list of windows in tab
-                    --line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-                    --    return {
-                    --        line.sep('', theme.win, theme.fill),
-                    --        win.is_current() and '' or '',
-                    --        win.buf_name(),
-                    --        line.sep('', theme.win, theme.fill),
-                    --        hl = theme.win,
-                    --        margin = ' ',
-                    --    }
-                    --end),
+                ---- shows list of windows in tab
+                --line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+                --    return {
+                --        line.sep('', theme.win, theme.fill),
+                --        win.is_current() and '' or '',
+                --        win.buf_name(),
+                --        line.sep('', theme.win, theme.fill),
+                --        hl = theme.win,
+                --        margin = ' ',
+                --    }
+                --end),
                 {
                     { '  ', hl = theme.tail },
                 },

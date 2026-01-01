@@ -12,7 +12,7 @@ local config = {
 -- end
 
 -- update function
-config.update = function (grid)
+config.update = function(grid)
     for i = 1, #grid do
         local prev = grid[i][#(grid[i])]
         for j = 1, #(grid[i]) do

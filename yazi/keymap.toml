@@ -11,7 +11,7 @@ desc = "reveal_finder"
 on = "<Space>"
 run = '''
 shell '
-    ~/.config/yazi/plugins/hackadoodle_ql.sh
+    ~/.config/yazi/plugins/hackadoodle_ql.sh "$1"
 ' -- $1
 '''
 desc = "quicklook"

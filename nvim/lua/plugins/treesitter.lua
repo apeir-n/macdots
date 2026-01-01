@@ -1,4 +1,4 @@
-require'nvim-treesitter'.setup {
+require('nvim-treesitter').setup({
     ensure_installed = {
         'bash',
         'c',
@@ -20,8 +20,8 @@ require'nvim-treesitter'.setup {
         'supercollider',
     },
     highlight = {
-        enable = false,
-        additional_vim_regex_highlighting = false,
+        enable = true,
+        additional_vim_regex_highlighting = true,
     },
     incremental_selection = {
         enable = true,
@@ -37,4 +37,4 @@ require'nvim-treesitter'.setup {
         updatetime = 25,
         persist_queries = false,
     },
-}
+})

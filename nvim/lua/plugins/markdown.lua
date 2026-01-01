@@ -1,6 +1,6 @@
 require('render-markdown').setup({
     render_modes = true,
-    bullet = { icons = {'•', '◦'} },
+    bullet = { icons = { '•', '◦' } },
     checkbox = {
         unchecked = {
             icon = ' ',
@@ -36,7 +36,7 @@ require('render-markdown').setup({
                 rendered = ' ',
                 highlight = 'RenderMarkdownSuccess',
             },
-            idea = { --󰌵   
+            idea = { --󰌵  
                 raw = '[I]',
                 rendered = '󰌵 ',
                 highlight = 'RenderMarkdownHint',

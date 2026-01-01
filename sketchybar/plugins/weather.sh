@@ -1,6 +1,5 @@
 #!/opt/homebrew/bin/bash
 
-#export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source "$HOME/.config/sketchybar/plugins/wearray.sh"
 source "$HOME/.config/sketchybar/plugins/hover.sh"
 

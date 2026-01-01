@@ -1,7 +1,6 @@
 #!/bin/bash
 
-source $HOME/.cache/wal/sketchybar_wal.sh
-
+source "$HOME/.cache/wal/sketchybar_wal.sh"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 bar=(
@@ -10,7 +9,7 @@ bar=(
     margin=12
     y_offset=4
     notch_width=200
-    color=$transpbg
+    color="$transpbg"
     blur_radius=30
     corner_radius=16
 )
@@ -32,7 +31,7 @@ default=(
     icon.padding_left=12
     icon.padding_right=8
     popup.blur_radius=10
-    popup.background.color=$transpbg
+    popup.background.color="$transpbg"
     popup.background.border_color="$color7"
     popup.background.corner_radius=12
     popup.background.height=32
@@ -42,210 +41,240 @@ default=(
     popup.y_offset=0
 )
 
-sketchybar  --bar "${bar[@]}"
-sketchybar  --default "${default[@]}"
+sketchybar --bar "${bar[@]}"
+sketchybar --default "${default[@]}"
 
-# ~ left ~
-sketchybar  --add item apple left                                       \
-                --set apple                                             \
-                    label.drawing=off                                   \
-                    icon=""                                              \
-                    padding_right=6                                     \
-                    icon.padding_left=12                                \
-                    icon.padding_right=12                               \
-                    script="$PLUGIN_DIR/hover.sh"                       \
-                --subscribe apple                                       \
-                    mouse.entered                                       \
-                    mouse.exited
-sketchybar      --set apple                                             \
-                    popup.background.drawing=on                         \
-                    click_script="sketchybar --animate circ 6       \
-                    --set apple popup.drawing=toggle                \
-                        background.height=38 background.height=32   \
-                        background.y_offset=3 background.y_offset=0 \
-                        icon.y_offset=6 icon.y_offset=0             \
-                        icon.y_offset=4 icon.y_offset=0             \
-                        icon.y_offset=2 icon.y_offset=0"                \
-            --add item apple.settings popup.apple                       \
-                --set apple.settings                                    \
-                    label="System"                                      \
-                    icon="󰟀"                                            \
-                    icon.font="IoTermina Nerd Font:Regular:21.0"                \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    click_script="open -a 'System Settings'; \
-                    sketchybar --set apple popup.drawing=off"           \
-            --add item apple.command popup.apple                        \
-                --set apple.command                                     \
-                    label="Command"                                     \
-                    icon=""                                            \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    click_script="osascript -e 'tell application \"System Events\" to keystroke \";\" using {command down, shift down}'; sketchybar --set apple popup.drawing=off" \
-            --add item apple.diaperchange popup.apple                   \
-                --set apple.diaperchange                                \
-                    label="Diaper Change"                               \
-                    icon=""                                            \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    click_script="~/.local/scripts/diaperchange.sh \
-                    sketchybar --set apple popup.drawing=off"           \
-            --add item apple.sleep popup.apple                          \
-                --set apple.sleep                                       \
-                    label="Sleep"                                       \
-                    icon=""                                            \
-                    icon.padding_right=10                               \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    click_script="pmset displaysleepnow \
-                    sketchybar --set apple popup.drawing=off"
+#################################################################
+############################# left ##############################
+#################################################################
+
+sketchybar                                                      \
+    --add item apple left                                       \
+    --set apple                                                 \
+        label.drawing=off                                       \
+        icon=""                                                \
+        padding_right=6                                         \
+        icon.padding_left=12                                    \
+        icon.padding_right=12                                   \
+        script="$PLUGIN_DIR/hover.sh"                           \
+        popup.background.drawing=on                             \
+        click_script="
+            sketchybar                                          \
+                --animate circ 6                                \
+                --set apple popup.drawing=toggle                \
+                    background.height=38 background.height=32   \
+                    background.y_offset=3 background.y_offset=0 \
+                    icon.y_offset=6 icon.y_offset=0             \
+                    icon.y_offset=4 icon.y_offset=0             \
+                    icon.y_offset=2 icon.y_offset=0"            \
+    --subscribe apple                                           \
+        mouse.entered                                           \
+        mouse.exited                                            \
+    --add item apple.settings popup.apple                       \
+    --set apple.settings                                        \
+        label="system"                                          \
+        icon="󰟀"                                                \
+        icon.font="IoTermina Nerd Font:Regular:21.0"            \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        click_script="                                          \
+            open -a 'System Settings'                           \
+            sketchybar --set apple popup.drawing=off"           \
+    --add item apple.command popup.apple                        \
+    --set apple.command                                         \
+        label="command"                                         \
+        icon=""                                                \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        click_script="                                          \
+            $PLUGIN_DIR/quickterm.scpt                          \
+            sketchybar --set apple popup.drawing=off"           \
+    --add item apple.sleep popup.apple                          \
+    --set apple.sleep                                           \
+        label="sleep"                                           \
+        icon=""                                                \
+        icon.padding_right=10                                   \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        click_script="                                          \
+            pmset displaysleepnow                               \
+            sketchybar --set apple popup.drawing=off"
 
 sketchybar  --add event aerospace_workspace_change
+
 for sid in $(aerospace list-workspaces --all); do
-    sketchybar  --add item space."$sid" left                            \
-                    --subscribe space."$sid" aerospace_workspace_change \
-                    --set space."$sid"                                  \
-                        label="$sid"                                    \
-                        icon.padding_left=6                             \
-                        icon.padding_right=6                            \
-                        label.padding_left=0                            \
-                        background.height=26                            \
-                        background.border_width=0                       \
-                        background.corner_radius=10                     \
-                        padding_left=2                                  \
-                        padding_right=2                                 \
-                        click_script="aerospace workspace $sid"         \
-                        script="$PLUGIN_DIR/aerospace.sh $sid"
+    sketchybar                                                  \
+        --add item space."$sid" left                            \
+        --subscribe space."$sid" aerospace_workspace_change     \
+        --set space."$sid"                                      \
+            label="$sid"                                        \
+            icon.padding_left=6                                 \
+            icon.padding_right=6                                \
+            label.padding_left=0                                \
+            background.height=26                                \
+            background.border_width=0                           \
+            background.corner_radius=10                         \
+            padding_left=2                                      \
+            padding_right=2                                     \
+            click_script="aerospace workspace $sid"             \
+            script="$PLUGIN_DIR/aerospace.sh $sid"
 done
-sketchybar --add bracket spaces space.1 space.2 space.3 space.4 space.5 space.6
 
-#      󰟟          
-sketchybar  --add item front_app left                                   \
-                --set front_app                                         \
-                    script="$PLUGIN_DIR/front_app.sh"                   \
-                    padding_left=6                                      \
-                --subscribe front_app                                   \
-                    front_app_switched                                  \
-                    mouse.entered                                       \
-                    mouse.exited
-sketchybar      --set front_app                                         \
-                    popup.background.drawing=on                         \
-                    click_script="sketchybar --animate circ 6       \
-                    --set front_app popup.drawing=toggle \
-                        background.height=38 background.height=32   \
-                        background.y_offset=3 background.y_offset=0 \
-                        icon.y_offset=6 icon.y_offset=0             \
-                        icon.y_offset=4 icon.y_offset=0             \
-                        icon.y_offset=2 icon.y_offset=0"                \
-            --add item front_app.settings popup.front_app               \
-                --set front_app.settings                                \
-                    label="Settings"                                    \
-                    icon=""                                            \
-                    icon.padding_left=14                                \
-                    icon.padding_right=10                               \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    script="$PLUGIN_DIR/front_app.sh"                   \
-            --add item front_app.new popup.front_app                    \
-                --set front_app.new                                     \
-                    label="New"                                         \
-                    icon=""                                            \
-                    icon.padding_right=8                                \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    script="$PLUGIN_DIR/front_app.sh"                   \
-            --add item front_app.quit popup.front_app                   \
-                --set front_app.quit                                    \
-                    label="Quit"                                        \
-                    icon=""                                            \
-                    icon.padding_left=15                                \
-                    icon.padding_right=9                                \
-                    background.drawing=off                              \
-                    background.border_width=0                           \
-                    script="$PLUGIN_DIR/front_app.sh"
+sketchybar                                                      \
+    --add bracket spaces                                        \
+        space.1                                                 \
+        space.2                                                 \
+        space.3                                                 \
+        space.4                                                 \
+        space.5                                                 \
+        space.6
 
-# ~ center ~
-#sketchybar  --add item svim.mode e                                      \
-#                --set svim.mode                                         \
-#                    popup.align=center                                  \
-#                    updates=on width=42                                 \
-#                    icon.padding_left=12                                \
-#                    icon.padding_right=12                               \
-#                    script="sketchybar --set svim.mode \
-#                    popup.drawing=off"                                  \
-#                --subscribe svim.mode                                   \
-#                    front_app_switched                                  \
-#                    window_focus                                        \
-#            --add item svim.cmdline popup.svim.mode                     \
-#                --set svim.cmdline                                      \
-#                    label.padding_right=15                              \
-#                    icon=""
+sketchybar                                                      \
+    --add item front_app left                                   \
+    --set front_app                                             \
+        script="$PLUGIN_DIR/front_app.sh"                       \
+        padding_left=6                                          \
+        popup.background.drawing=on                             \
+        click_script="                                          \
+            sketchybar                                          \
+                --animate circ 6                                \
+                --set front_app popup.drawing=toggle            \
+                    background.height=38 background.height=32   \
+                    background.y_offset=3 background.y_offset=0 \
+                    icon.y_offset=6 icon.y_offset=0             \
+                    icon.y_offset=4 icon.y_offset=0             \
+                    icon.y_offset=2 icon.y_offset=0"            \
+    --subscribe front_app                                       \
+        front_app_switched                                      \
+        mouse.entered                                           \
+        mouse.exited                                            \
+    --add item front_app.settings popup.front_app               \
+    --set front_app.settings                                    \
+        label="Settings"                                        \
+        icon=""                                                \
+        icon.padding_left=14                                    \
+        icon.padding_right=10                                   \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        script="$PLUGIN_DIR/front_app.sh"                       \
+    --add item front_app.new popup.front_app                    \
+    --set front_app.new                                         \
+        label="New"                                             \
+        icon=""                                                \
+        icon.padding_right=8                                    \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        script="$PLUGIN_DIR/front_app.sh"                       \
+    --add item front_app.quit popup.front_app                   \
+    --set front_app.quit                                        \
+        label="Quit"                                            \
+        icon=""                                                \
+        icon.padding_left=15                                    \
+        icon.padding_right=9                                    \
+        background.drawing=off                                  \
+        background.border_width=0                               \
+        script="$PLUGIN_DIR/front_app.sh"
 
-sketchybar  --add event music_change com.apple.Music.playerInfo         \
-            --add item nowplaying e                                     \
-                --set nowplaying                                        \
-                    label.max_chars=22                                  \
-                    scroll_texts=on                                     \
-                    icon=󰎈                                              \
-                    icon.padding_left=12                                \
-                    icon.padding_right=12                               \
-                    padding_left=8                                      \
-                    script="$PLUGIN_DIR/nowplaying.sh"                  \
-                    click_script="open -a Music;    \
-                    sketchybar  --animate tanh 10   \
-                                --set nowplaying    \
-                                    icon.y_offset=5 icon.y_offset=0"    \
-                    updates=on                                          \
-                --subscribe nowplaying                                  \
-                    music_change                                        \
-                    mouse.entered                                       \
-                    mouse.exited
+#################################################################
+############################ center #############################
+#################################################################
 
-# ~ right ~
-sketchybar  --add item time right                                       \
-                --set time                                              \
-                    update_freq=10                                      \
-                    script="$PLUGIN_DIR/clock.sh"                       \
-                    click_script="$HOME/.config/sketchybar/plugins/uxnclocklaunch.sh" \
-                --subscribe time                                        \
-                    mouse.entered                                       \
-                    mouse.exited                                        \
-                    mouse.clicked
+#sketchybar                                                      \
+#    --add item svim.mode e                                      \
+#    --set svim.mode                                             \
+#        popup.align=center                                      \
+#        updates=on width=42                                     \
+#        icon.padding_left=12                                    \
+#        icon.padding_right=12                                   \
+#        script="                                                \
+#            sketchybar --set svim.mode                          \
+#            popup.drawing=off"                                  \
+#    --subscribe svim.mode                                       \
+#        front_app_switched                                      \
+#        window_focus                                            \
+#    --add item svim.cmdline popup.svim.mode                     \
+#    --set svim.cmdline                                          \
+#        label.padding_right=15                                  \
+#        icon=""
 
-sketchybar  --add item date right                                       \
-                --set date                                              \
-                    update_freq=60                                      \
-                    icon=                                              \
-                    script="$PLUGIN_DIR/date.sh"                        \
-                    click_script="open -a Calendar; \
-                    sketchybar  --animate tanh 10   \
-                                --set date          \
-                                    icon.y_offset=5 icon.y_offset=0"    \
-                --subscribe date                                        \
-                    mouse.entered                                       \
-                    mouse.exited
+sketchybar                                                      \
+    --add event music_change com.apple.Music.playerInfo         \
+    --add item nowplaying e                                     \
+    --set nowplaying                                            \
+        label.max_chars=22                                      \
+        scroll_texts=on                                         \
+        icon="󰎈"                                                \
+        icon.padding_left=12                                    \
+        icon.padding_right=12                                   \
+        padding_left=8                                          \
+        script="$PLUGIN_DIR/nowplaying.sh"                      \
+        click_script="                                          \
+            open -a Music;                                      \
+            sketchybar                                          \
+                --animate tanh 10                               \
+                --set nowplaying                                \
+                    icon.y_offset=5 icon.y_offset=0"            \
+        updates=on                                              \
+    --subscribe nowplaying                                      \
+        music_change                                            \
+        mouse.entered                                           \
+        mouse.exited
 
-sketchybar  --add item battery right                                    \
-                --set battery                                           \
-                    update_freq=120                                     \
-                    script="$PLUGIN_DIR/battery.sh"                     \
-                --subscribe battery                                     \
-                    system_woke                                         \
-                    power_source_change                                 \
-                    mouse.entered                                       \
-                    mouse.exited
+#################################################################
+############################# right #############################
+#################################################################
 
-sketchybar  --add item weather right                                    \
-                --set weather                                           \
-                    update_freq=600                                     \
-                    script="$PLUGIN_DIR/weather.sh"                     \
-                    click_script="open -a Weather;  \
-                    sketchybar  --animate tanh 10   \
-                                --set weather       \
-                                    icon.y_offset=5 icon.y_offset=0"    \
-                --subscribe weather                                     \
-                    mouse.entered                                       \
-                    mouse.exited
+sketchybar                                                      \
+    --add item time right                                       \
+    --set time                                                  \
+        update_freq=10                                          \
+        script="$PLUGIN_DIR/clock.sh"                           \
+        click_script="$PLUGIN_DIR/uxnclocklaunch.sh"            \
+    --subscribe time                                            \
+        mouse.entered                                           \
+        mouse.exited                                            \
+        mouse.clicked
 
-# ~ done ~
+sketchybar                                                      \
+    --add item date right                                       \
+    --set date                                                  \
+        update_freq=30                                          \
+        icon=""                                                \
+        script="$PLUGIN_DIR/date.sh"                            \
+        click_script="                                          \
+            open -a Calendar;                                   \
+            sketchybar                                          \
+                --animate tanh 10                               \
+                --set date                                      \
+                    icon.y_offset=5 icon.y_offset=0"            \
+    --subscribe date                                            \
+        mouse.entered                                           \
+        mouse.exited
+
+sketchybar                                                      \
+    --add item battery right                                    \
+    --set battery                                               \
+        update_freq=120                                         \
+        script="$PLUGIN_DIR/battery.sh"                         \
+    --subscribe battery                                         \
+        system_woke                                             \
+        power_source_change                                     \
+        mouse.entered                                           \
+        mouse.exited
+
+sketchybar                                                      \
+    --add item weather right                                    \
+    --set weather                                               \
+        update_freq=600                                         \
+        script="$PLUGIN_DIR/weather.sh"                         \
+        click_script="                                          \
+            open -a Weather;                                    \
+            sketchybar                                          \
+                --animate tanh 10                               \
+                --set weather                                   \
+                    icon.y_offset=5 icon.y_offset=0"            \
+    --subscribe weather                                         \
+        mouse.entered                                           \
+        mouse.exited
+
 sketchybar  --update

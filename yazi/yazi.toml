@@ -1,9 +1,9 @@
 [open]
 prepend_rules = [
-    { name = "*.xpm", use = "edit" },
+    { url = "*.xpm", use = "edit" },
 ]
 
 [plugin]
 prepend_previewers = [
-    { name = "*.xpm", run = "code" },
+    { url = "*.xpm", run = "code" },
 ]

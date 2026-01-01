@@ -3,7 +3,7 @@
 source "$HOME/.config/sketchybar/plugins/hover.sh"
 
 if [ "$SENDER" = "front_app_switched" ]; then
-    ICON="" # default icon
+    ICON="" # default
     LABEL="$INFO"
 
     case "$INFO" in
@@ -97,9 +97,6 @@ if [ "$SENDER" = "front_app_switched" ]; then
             ;;
         "Calendar")
             ICON="󰨲"
-            ;;
-        "Warp")
-            ICON="󰟀"
             ;;
         "Figma")
             ICON=""
