@@ -12,6 +12,7 @@ bar=(
     color="$transpbg"
     blur_radius=30
     corner_radius=16
+    shadow=on
 )
 
 default=(
