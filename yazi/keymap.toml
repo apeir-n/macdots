@@ -111,3 +111,13 @@ desc = "prevtab"
 on  = "L"
 run = "tab_switch 1 --relative"
 desc = "nexttab"
+
+[[mgr.prepend_keymap]]
+on   = "="
+run  = "plugin zoom 1"
+desc = "zoom_in"
+
+[[mgr.prepend_keymap]]
+on   = "-"
+run  = "plugin zoom -1"
+desc = "zoom_out"
