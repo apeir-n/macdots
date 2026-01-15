@@ -8,4 +8,5 @@ require('themery').setup({
         'kanso',
     },
     livePreview = true,
+    --globalAfter = require('config.transparent').apply()
 })

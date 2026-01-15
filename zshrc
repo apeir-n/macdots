@@ -42,9 +42,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
 alias mkdir="mkdir -p"
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
+#alias cp="cp -i"
+#alias mv="mv -i"
+#alias rm="rm -i"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias man="batman"
 alias brewup="brew update && brew upgrade && brew cleanup"
@@ -119,10 +119,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-1]="fg=green"
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=blue"
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=magenta"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/wisdmm/.lmstudio/bin"
-# End of LM Studio CLI section
 
 case "$TERM" in
     "st-256color")

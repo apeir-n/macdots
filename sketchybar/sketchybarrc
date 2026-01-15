@@ -12,7 +12,7 @@ bar=(
     color="$transpbg"
     blur_radius=30
     corner_radius=16
-    shadow=on
+    #shadow=on
 )
 
 default=(
@@ -241,6 +241,7 @@ sketchybar                                                      \
     --set date                                                  \
         update_freq=30                                          \
         icon=""                                                \
+        icon.font="IoTermina Nerd Font:Regular:14.0"            \
         script="$PLUGIN_DIR/date.sh"                            \
         click_script="                                          \
             open -a Calendar;                                   \

@@ -30,35 +30,35 @@ Plug('webhooked/kanso.nvim')
 ----------------------------
 --        plugins         --
 ----------------------------
-Plug('folke/which-key.nvim')
-Plug('goolord/alpha-nvim')
 Plug('nvim-treesitter/nvim-treesitter')
 --Plug('nvim-treesitter/playground')
+Plug('neovim/nvim-lspconfig')
 Plug('mfussenegger/nvim-lint')
-Plug('windwp/nvim-autopairs')       -- mini?
+Plug('rcarriga/nvim-notify')
+Plug('kylechui/nvim-surround')
+Plug('windwp/nvim-autopairs')
+Plug('norcalli/nvim-colorizer.lua')
+Plug('nvim-tree/nvim-web-devicons')
+Plug('folke/which-key.nvim')
+Plug('goolord/alpha-nvim')
 Plug('lewis6991/gitsigns.nvim')
 Plug('numToStr/Comment.nvim')
-Plug('norcalli/nvim-colorizer.lua')
 Plug('zaldih/themery.nvim')
 Plug('drgfunk/streamline.nvim')
-Plug('rcarriga/nvim-notify')        -- mini?
 Plug('folke/noice.nvim')
 Plug('obsidian-nvim/obsidian.nvim')
 Plug('MeanderingProgrammer/render-markdown.nvim')
 Plug('nvim-telescope/telescope.nvim')
-Plug('nanozuki/tabby.nvim')         -- mini?
+Plug('nanozuki/tabby.nvim')
 Plug('mikavilpas/yazi.nvim')
 Plug('folke/flash.nvim')
-Plug('neovim/nvim-lspconfig')
 Plug('mrcjkb/rustaceanvim')
-Plug('nvim-tree/nvim-web-devicons')
-Plug('kylechui/nvim-surround')
 Plug('karb94/neoscroll.nvim')
 Plug('eandrju/cellular-automaton.nvim' )
-Plug('tidalcycles/vim-tidal')
 Plug('Isrothy/neominimap.nvim')
---Plug('davidgranstrom/scnvim')
+Plug('tidalcycles/vim-tidal')
 --Plug('robbielyman/tidal.nvim')
+--Plug('davidgranstrom/scnvim')
 
 ----------------------------
 --          libs          --

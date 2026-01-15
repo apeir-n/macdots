@@ -8,7 +8,7 @@ local function get_fg(group, fallback)
     return fallback
 end
 
-function M.make_background_transparent()
+function M.apply()
     local hl = vim.api.nvim_set_hl
 
     hl(0, 'Normal', { bg = 'none' })
@@ -99,7 +99,7 @@ end
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = '*',
     callback = function()
-        M.make_background_transparent()
+        M.apply()
     end,
 })
 

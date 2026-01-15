@@ -70,3 +70,13 @@ vim.api.nvim_create_autocmd('FileType', {
 --    vim.opt_local.conceallevel = 0
 --  end
 --})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if vim.g.colors_name == "kanso" then
+            vim.defer_fn(function()
+                vim.cmd("colorscheme kanso")
+            end, 1)
+        end
+    end,
+})

@@ -12,14 +12,6 @@ require('obsidian').setup {
     statusline = { enabled = false },
     legacy_commands = false,
 
-    follow_url_func = function(url)
-        vim.ui.open(url)
-    end,
-
-    follow_img_func = function(img)
-        vim.ui.open(img)
-    end,
-
     checkbox = {
         order = {
             ' ',

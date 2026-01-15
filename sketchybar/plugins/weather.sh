@@ -10,4 +10,7 @@ SYMBOL=$(echo "$WEATHER" | jq -r '.symbolCode')
 ICON="${icons[$SYMBOL]}"
 [ -z "$ICON" ] && ICON=""
 
-/opt/homebrew/bin/sketchybar --set "$NAME" icon="$ICON" label="$TEMP"
+/opt/homebrew/bin/sketchybar    \
+    --set "$NAME"               \
+        icon="$ICON"            \
+        label="$TEMP"
