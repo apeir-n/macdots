@@ -68,7 +68,7 @@ if.app-name-regex-substring = 'replacicon'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'colorslurp'
+if.app-name-regex-substring = 'qemu-system-x86_64'
 run = 'layout floating'
 
 # ~ set floating windows (sub-windows) ~

@@ -31,10 +31,6 @@ if [ "$SENDER" = "front_app_switched" ]; then
         "Max" | "Max 8" | "Max 9")
             ICON=""
             ;;
-        "ChatGPT")
-            ICON="󱚥"
-            LABEL="DaddyGPT"
-            ;;
         "Music")
             ICON=""
             ;;
@@ -109,6 +105,9 @@ if [ "$SENDER" = "front_app_switched" ]; then
             ;;
         "XQuartz")
             ICON=""
+            ;;
+        "ComfyUI")
+            ICON=""
             ;;
     esac
 

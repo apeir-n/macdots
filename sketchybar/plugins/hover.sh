@@ -7,9 +7,9 @@ case "$SENDER" in
         sketchybar                                  \
             --animate tanh 15                       \
             --set "$NAME"                           \
-                background.color="$color7"          \
-                icon.color="$background"            \
-                label.color="$background"
+                background.color="$color8"          \
+                icon.color="$foreground"            \
+                label.color="$foreground"
         ;;
     "mouse.exited")
         sketchybar                                  \

@@ -86,8 +86,8 @@ require('render-markdown').setup({
         language_pad = 2,
         border = 'thick',
         sign = false,
-        highlight = 'RenderMarkdownCode',
-        highlight_fallback = 'RenderMarkdownCodeFallback',
+        -- highlight = 'RenderMarkdownCode',
+        -- highlight_fallback = 'RenderMarkdownCodeFallback',
     },
     link = {
         image = ' ',
@@ -102,6 +102,7 @@ require('render-markdown').setup({
             highlight = 'RenderMarkdownSuccess',
         },
     },
+    latex = { enabled = true },
 })
 
 --RenderMarkdownH1

@@ -1,0 +1,47 @@
+[[language]]
+name = "html"
+scope = "source.html"
+file-types = ["html"]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "python"
+scope = "source.py"
+file-types = ["py"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "c"
+scope = "source.c"
+file-types = ["h", "c", "cpp"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "rust"
+scope = "source.rs"
+file-types = ["rs"]
+indent = { tab-width = 4, unit = "    " }
+
+# [[language]]
+# name = "sh"
+# scope = "source.sh"
+# file-types = ["sh", "bash", "zsh"]
+# indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "json"
+scope = "source.json"
+file-types = ["json", "jsonc", "jsonl"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "toml"
+scope = "source.toml"
+file-types = ["toml"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "lua"
+scope = "source.lua"
+file-types = ["lua"]
+indent = { tab-width = 4, unit = "    " }

@@ -49,6 +49,7 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias man="batman"
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias zz="nvim ~/.zshrc"
+alias ze="nvim ~/.zshenv"
 alias rz="source ~/.zshrc"
 alias clock="CONF_PATH=$HOME/.config/clock-rs/conf.toml clock-rs"
 alias toys="~/.nursery/scripts/toybox.sh"
@@ -72,13 +73,13 @@ alias beget="sudo make clean install && make clean"
 alias suck="cd ~/.local/src/suckless && y"
 alias src="cd ~/.local/src && y"
 alias proj="cd ~/.local/projects && y"
+alias comfy="cd ~/.local/ai/ComfyUI/output && y"
 alias pa="ping apple.com"
 
 #etc
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source <(fzf --zsh)
 source "$XDG_DATA_HOME/ghcup/env"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
@@ -121,17 +122,17 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=blue"
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=magenta"
 
 case "$TERM" in
-    "st-256color")
+    "st-256color")      # simple term
         source "$HOME/.local/scripts/prompta"
         ;;
-    "xterm-256color")
+    "xterm-256color")   # apple term
         source "$HOME/.local/scripts/prompti"
         ;;
-    "xterm")
+    "xterm")            # actual xterm
         local nl=$'\n'
         PROMPT="${nl}%K{1}%F{0} %D{%I:%M} %K{3} zsh %K{4} %n %K{5} %m %f%k${nl}%F{7}┌── %~${nl}└─%f "
         ;;
-    *)
+    *)                  # ghostty etc
         eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
         ;;
 esac

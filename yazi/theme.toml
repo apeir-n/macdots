@@ -1,0 +1,10 @@
+[mode]
+normal_main = { fg = "white", bg = "blue" }
+normal_alt = { fg = "blue", bg = "white" }
+select_main = { fg = "white", bg = "yellow" }
+select_alt = { fg = "yellow", bg = "white" }
+
+[tabs]
+sep_outer = { open = "", close = "" }
+inactive = { fg = "green", bg = "reset", bold = false, italic = true }
+active = { fg = "reset", bg = "green", bold = false }

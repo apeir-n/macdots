@@ -43,6 +43,7 @@ wk.add({
     { '<leader>lq', desc = ' lsp_loclist', icon = '' },
     { '<leader>l[', desc = ' lsp_diagnxt', icon = '󰮰' },
     { '<leader>l]', desc = ' lsp_dianprv', icon = '󰮲' },
+    { '<leader>ln', desc = ' lsp_nope', icon = '' },
     { '<leader>nm', desc = ' minmap_togl', icon = '' },
     { '<leader>nr', desc = ' minmap_refr', icon = '' },
     { '<leader>nf', desc = ' minmap_focs', icon = '' },
