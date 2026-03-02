@@ -1,12 +1,3 @@
-#env
-export EDITOR="nvim"
-export VISUAL="nvim"
-export PATH="/Users/wisdmm/.local/bin:$PATH"
-export PATH="/Applications/SuperCollider.app/Contents/MacOS:$PATH"
-#export MANPAGER="less -R --use-color -Dd+M -Du+B -DP+G -Ds+C"
-#export MANPATH="$HOME/.local/share/man${MANPATH:+:${MANPATH}}"
-#export MANPAGER="nvim +Man!"
-
 #hist
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
 HISTSIZE=10000
