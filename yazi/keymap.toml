@@ -38,7 +38,7 @@ desc = "nsxiv_open"
 on = "'"
 run = '''
 shell --block '
-    vim "$1"
+    hx "$1"
 ' -- $1
 '''
 desc = "vim_open"

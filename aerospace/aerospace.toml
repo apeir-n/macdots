@@ -32,6 +32,10 @@ outer.top = 20
 outer.right = 15
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'books'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
 
