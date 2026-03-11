@@ -1,0 +1,37 @@
+theme = "transpo"
+
+editor = {
+    line-number = "relative",
+    scroll-lines = 1,
+    auto-format = false,
+    bufferline = "multiple",
+    color-modes = true,
+    default-yank-register= "+",
+    cursor-shape = {
+        insert = "bar",
+        normal = "block",
+        select = "underline",
+    },
+    file-picker = {
+        hidden = false,
+    },
+    statusline = {
+        left = ["mode", "spinner", "file-base-name", "file-modification-indicator"],
+        right = ["diagnostics", "position", "file-encoding", "file-type", "total-line-numbers"],
+        separator = "│",
+        mode.normal = "NORMAL",
+        mode.insert = "INSERT",
+        mode.select = "SELECT",
+        diagnostics = ["warning", "error"],
+        workspace-diagnostics = ["warning", "error"],
+    },
+}
+
+keys = {
+    normal = {
+        X = "extend_line_above", # what it should be by default
+        space = {
+            l = ":toggle soft-wrap.enable",
+        },
+    },
+}

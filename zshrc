@@ -54,7 +54,7 @@ alias scripts="cd $HOME/.local/scripts && y"
 alias wp="cd $HOME/Pictures/wallpapers && y"
 alias stars="astroterm -Cc -s 400 -a 41.1081 -o -81.5148"
 alias stors="astroterm -Cuc -s 400 -a 41.1081 -o -81.5148"
-alias cr="cargo run"
+alias cr="cargo run -q"
 alias ff="fastfetch"
 alias dadda="$HOME/.local/ai/SillyTavern-Launcher/launcher.sh"
 alias baby="cd $HOME/.baby && y"
@@ -67,7 +67,7 @@ alias proj="cd $HOME/.local/projects && y"
 alias comfy="cd $HOME/.local/ai/ComfyUI/output && y"
 alias dl="cd $HOME/Downloads && y"
 alias pa="ping apple.com"
-alias pkglist="brew list --installed-on-request
+alias pkglist="brew list --installed-on-request"
 
 #etc
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
