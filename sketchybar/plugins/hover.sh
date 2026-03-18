@@ -8,7 +8,6 @@ case "$SENDER" in
             --animate tanh 15                         \
             --set "$NAME"                             \
                 background.color="$color7"            \
-                background.border_color="$background" \
                 icon.color="$background"              \
                 label.color="$background"
         ;;

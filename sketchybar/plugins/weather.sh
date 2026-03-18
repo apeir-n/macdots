@@ -1,7 +1,10 @@
-#!/opt/homebrew/bin/bash
+#!/bin/zsh
 
-source "$HOME/.config/sketchybar/plugins/wearray.sh"
-source "$HOME/.config/sketchybar/plugins/hover.sh"
+#/opt/homebrew/bin/bash
+# apple's crusty old bash doesn't have arrays apparently
+
+source "plugins/wearray.sh"
+source "plugins/hover.sh"
 
 WEATHER=$(yr now akron --json)
 TEMP=$(echo "$WEATHER" | jq -r '"\((.forecast[0].temperature * 9 / 5) + 32 | round)°"')

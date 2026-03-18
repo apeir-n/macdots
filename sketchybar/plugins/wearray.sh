@@ -1,4 +1,6 @@
-#!/opt/homebrew/bin/bash
+#!/bin/zsh
+
+#opt/homebrew/bin/bash
 
 declare -A icons=(
     [clearsky_day]=""

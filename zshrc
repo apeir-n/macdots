@@ -68,6 +68,7 @@ alias comfy="cd $HOME/.local/ai/ComfyUI/output && y"
 alias dl="cd $HOME/Downloads && y"
 alias pa="ping apple.com"
 alias pkglist="brew list --installed-on-request"
+alias paper="$HOME/.local/bin/paper"
 
 #etc
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -81,16 +82,24 @@ function c() {
     ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
 }
 
-function h() {
-    hx "$HOME/.config/${(j:/:)@}"
-}
-
 function s() {
     ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
 }
 
 function v() {
     ${EDITOR:-nvim} "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
+}
+
+function hc() {
+    hx "$HOME/.config/${(j:/:)@}"
+}
+
+function hs() {
+    hx "$HOME/.local/scripts/${(j:/:)@}"
+}
+
+function hv() {
+    hx "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
 }
 
 function y() {

@@ -279,4 +279,15 @@ sketchybar                                                      \
         mouse.entered                                           \
         mouse.exited
 
+sketchybar                                                      \
+    --add item ip right                                         \
+    --set ip                                                    \
+        update_freq=600                                         \
+        icon=""                                                \
+        icon.font="IoTermina Nerd Font:Regular:14.0"            \
+        script="$PLUGIN_DIR/ip.sh"                              \
+    --subscribe ip                                              \
+        mouse.entered                                           \
+        mouse.exited
+
 sketchybar  --update
