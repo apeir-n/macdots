@@ -3,7 +3,6 @@
 source "plugins/hover.sh"
 
 iplong="$(ipconfig getifaddr en0)"
-#ipshort="$(echo "$iplong" | sed 's/192.168.//')"
 ipshort="${iplong//192.168./}"
 
 ################################################################

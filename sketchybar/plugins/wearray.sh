@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-#opt/homebrew/bin/bash
-
 declare -A icons=(
     [clearsky_day]=""
     [clearsky_night]=""

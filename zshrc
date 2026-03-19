@@ -1,3 +1,7 @@
+#env
+export HATE="camelCase"
+export LOVE="snake_case"
+
 #hist
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
 HISTSIZE=10000

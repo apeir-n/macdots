@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-#/opt/homebrew/bin/bash
-# apple's crusty old bash doesn't have arrays apparently
-
 source "plugins/wearray.sh"
 source "plugins/hover.sh"
 
@@ -14,6 +11,7 @@ ICON="${icons[$SYMBOL]}"
 [ -z "$ICON" ] && ICON=""
 [ -z "$TEMP" ] && TEMP="0.o"
 
+# full path for cron
 /opt/homebrew/bin/sketchybar    \
     --set "$NAME"               \
         icon="$ICON"            \
