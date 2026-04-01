@@ -151,7 +151,7 @@ sketchybar                                                      \
         mouse.exited                                            \
     --add item front_app.settings popup.front_app               \
     --set front_app.settings                                    \
-        label="Settings"                                        \
+        label="settings"                                        \
         icon=""                                                \
         icon.padding_left=14                                    \
         icon.padding_right=10                                   \
@@ -160,7 +160,7 @@ sketchybar                                                      \
         script="$PLUGIN_DIR/front_app.sh"                       \
     --add item front_app.new popup.front_app                    \
     --set front_app.new                                         \
-        label="New"                                             \
+        label="new"                                             \
         icon=""                                                \
         icon.padding_right=8                                    \
         background.drawing=off                                  \
@@ -168,7 +168,7 @@ sketchybar                                                      \
         script="$PLUGIN_DIR/front_app.sh"                       \
     --add item front_app.quit popup.front_app                   \
     --set front_app.quit                                        \
-        label="Quit"                                            \
+        label="quit"                                            \
         icon=""                                                \
         icon.padding_left=15                                    \
         icon.padding_right=9                                    \

@@ -22,11 +22,23 @@ scope = "source.rs"
 file-types = ["rs"]
 indent = { tab-width = 4, unit = "    " }
 
-# [[language]]
-# name = "sh"
-# scope = "source.sh"
-# file-types = ["sh", "bash", "zsh"]
-# indent = { tab-width = 4, unit = "    " }
+#[[language]]
+#name = "sh"
+#scope = "source.sh"
+#file-types = ["sh"]
+#indent = { tab-width = 4, unit = "    " }
+#
+#[[language]]
+#name = "bash"
+#scope = "source.bash"
+#file-types = ["bash"]
+#indent = { tab-width = 4, unit = "    " }
+#
+#[[language]]
+#name = "zsh"
+#scope = "source.zsh"
+#file-types = ["zsh"]
+#indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "json"
