@@ -2,12 +2,9 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { noremap = true, silent = true })
 end
 
---leader
 map('', '<Space>', '<Nop>')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-
---fuck q @ nigga
 map('n', 'q', '<Nop>')
 map('n', '@', '<Nop>')
 
@@ -37,9 +34,10 @@ map('n', '<leader>fm', ':Telescope man_pages<CR>')
 map('n', '<leader>fn', ':Telescope notify<CR>')
 map('n', '<leader>y', ':Yazi<CR>')
 map('n', '<leader>c', ':Themery<CR>')
-map('n', '<leader>pi', ':PlugInstall<CR>')
-map('n', '<leader>pu', ':PlugUpdate<CR>')
-map('n', '<leader>pc', ':PlugClean<CR>')
+-- map('n', '<leader>pi', ':PlugInstall<CR>')
+-- map('n', '<leader>pu', ':PlugUpdate<CR>')
+-- map('n', '<leader>pc', ':PlugClean<CR>')
+map('n', '<leader>p', vim.pack.update)
 map('n', '<leader>r', ':so %<CR>')
 map('n', '<leader>u', ':silent !xdg-open "<cWORD>" &<CR>')
 map('n', '<leader>w', ':set wrap!<CR>')

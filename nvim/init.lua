@@ -1,80 +1,63 @@
-----------------------------
---       bootstrap        --
-----------------------------
-local data_dir = vim.fn.stdpath('data')
-if vim.fn.empty(vim.fn.glob(data_dir .. '/site/autoload/plug.vim')) == 1 then
-    vim.cmd('silent !curl -fLo ' .. data_dir .. '/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-    vim.o.runtimepath = vim.o.runtimepath
-    vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
-end
-
-local vim = vim
-local Plug = vim.fn['plug#']
+vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
+  local name, kind, active = ev.data.spec.name, ev.data.kind, ev.data.active
+  if name == 'nvim-treesitter' and kind == 'update' then
+    if not active then vim.cmd.packadd('nvim-treesitter') end
+    vim.cmd('TSUpdate')
+  end
+end })
 
 vim.cmd('filetype plugin on')
 
-----------------------------
+vim.pack.add({
+    ----------------------------
+    --         colors         --
+    ----------------------------
+    'https://github.com/sainnhe/edge',
+    'https://github.com/sainnhe/sonokai',
+    'https://github.com/sainnhe/everforest',
+    'https://github.com/sainnhe/gruvbox-material',
+    'https://github.com/rebelot/kanagawa.nvim',
+    'https://github.com/webhooked/kanso.nvim',
 
-vim.call('plug#begin')
+    ----------------------------
+    --        plugins         --
+    ----------------------------
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/mfussenegger/nvim-lint',
+    'https://github.com/rcarriga/nvim-notify',
+    'https://github.com/kylechui/nvim-surround',
+    'https://github.com/windwp/nvim-autopairs',
+    'https://github.com/norcalli/nvim-colorizer.lua',
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/folke/which-key.nvim',
+    'https://github.com/goolord/alpha-nvim',
+    'https://github.com/numToStr/Comment.nvim',
+    'https://github.com/zaldih/themery.nvim',
+    'https://github.com/drgfunk/streamline.nvim',
+    -- 'https://github.com/folke/noice.nvim',
+    'https://github.com/obsidian-nvim/obsidian.nvim',
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+    'https://github.com/nvim-telescope/telescope.nvim',
+    'https://github.com/nanozuki/tabby.nvim',
+    'https://github.com/mikavilpas/yazi.nvim',
+    'https://github.com/folke/flash.nvim',
+    'https://github.com/mrcjkb/rustaceanvim',
+    'https://github.com/eandrju/cellular-automaton.nvim',
+    'https://github.com/Isrothy/neominimap.nvim',
 
-----------------------------
---         colors         --
-----------------------------
-Plug('sainnhe/edge')
-Plug('sainnhe/sonokai')
-Plug('sainnhe/everforest')
-Plug('sainnhe/gruvbox-material')
-Plug('rebelot/kanagawa.nvim')
-Plug('webhooked/kanso.nvim')
-
-----------------------------
---        plugins         --
-----------------------------
-Plug('nvim-treesitter/nvim-treesitter')
---Plug('nvim-treesitter/playground')
-Plug('neovim/nvim-lspconfig')
-Plug('mfussenegger/nvim-lint')
-Plug('rcarriga/nvim-notify')
-Plug('kylechui/nvim-surround')
-Plug('windwp/nvim-autopairs')
-Plug('norcalli/nvim-colorizer.lua')
-Plug('nvim-tree/nvim-web-devicons')
-Plug('folke/which-key.nvim')
-Plug('goolord/alpha-nvim')
-Plug('lewis6991/gitsigns.nvim')
-Plug('numToStr/Comment.nvim')
-Plug('zaldih/themery.nvim')
-Plug('drgfunk/streamline.nvim')
-Plug('folke/noice.nvim')
-Plug('obsidian-nvim/obsidian.nvim')
-Plug('MeanderingProgrammer/render-markdown.nvim')
-Plug('nvim-telescope/telescope.nvim')
-Plug('nanozuki/tabby.nvim')
-Plug('mikavilpas/yazi.nvim')
-Plug('folke/flash.nvim')
-Plug('mrcjkb/rustaceanvim')
-Plug('karb94/neoscroll.nvim')
-Plug('eandrju/cellular-automaton.nvim' )
-Plug('Isrothy/neominimap.nvim')
-Plug('tidalcycles/vim-tidal')
---Plug('robbielyman/tidal.nvim')
---Plug('davidgranstrom/scnvim')
-
-----------------------------
---          libs          --
-----------------------------
-Plug('nvim-lua/plenary.nvim')
-Plug('MunifTanjim/nui.nvim')
-
-----------------------------
-
-vim.call('plug#end')
+    ----------------------------
+    --         libs           --
+    ----------------------------
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/MunifTanjim/nui.nvim',
+})
 
 ----------------------------
 --          load          --
 ----------------------------
 require('config.autocmd')
---require('config.filetypes')
+--require('config.filetypes') -- something is fucked up idk
 require('config.lsp')
 require('config.mappings')
 require('config.options')
@@ -82,10 +65,9 @@ require('config.transparent')
 
 require('plugins.alpha')
 require('plugins.autopairs')
-require('plugins.colorizer')
+-- require('plugins.colorizer') -- uses a deprecated function
 require('plugins.comment')
-require('plugins.gitsigns')
-require('plugins.noice')
+-- require('plugins.noice') -- the "press a key to continue" thing on startup
 require('plugins.notify')
 require('plugins.lint')
 require('plugins.obsidian')
@@ -101,5 +83,15 @@ require('plugins.flash')
 require('plugins.surround')
 require('plugins.minimap')
 require('plugins.icons')
-require('plugins.neoscroll')
 require('plugins.automaton')
+
+----------------------------
+--          etc           --
+----------------------------
+-- 'https://github.com/karb94/neoscroll.nvim',
+-- require('plugins.neoscroll')
+
+-- 'https://github.com/lewis6991/gitsigns.nvim',
+-- require('plugins.gitsigns')
+
+-- 'https://github.com/tidalcycles/vim-tidal',
