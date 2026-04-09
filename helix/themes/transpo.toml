@@ -1,3 +1,5 @@
 inherits = "base16_transparent"
 comment = { fg = "gray", modifiers = [ "italic" ] }
-"ui.selection" = { bg = "black" }
+# "ui.selection" = { bg = "black" }
+# "ui.selection" = { bg = "gray" }
+"ui.selection" = { modifiers = [ "reversed" ] }

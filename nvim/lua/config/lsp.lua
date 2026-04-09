@@ -2,6 +2,7 @@ vim.lsp.enable({
     'clangd',
     'lua_ls',
     'rust_analyzer',
+    'steel-language-server',
 })
 
 ----i think i prefer c-x c-o to get the menu

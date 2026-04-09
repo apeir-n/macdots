@@ -1,24 +1,34 @@
--- streamline modeclrs
-vim.api.nvim_create_autocmd('ModeChanged', {
-    callback = function()
-        local ok, mode = pcall(vim.fn.mode)
-        if not ok then return end
-
-        local hl = vim.api.nvim_set_hl
-
-        if mode == 'n' then
-            hl(0, 'StreamlineMode', { fg = '#D27E99', bg = 'none', bold = true })
-        elseif mode == 'i' then
-            hl(0, 'StreamlineMode', { fg = '#98BB6C', bg = 'none', bold = true })
-        elseif mode == 'v' or mode == 'V' or mode == '\22' then
-            hl(0, 'StreamlineMode', { fg = '#7FB4CA', bg = 'none', bold = true })
-        elseif mode == 'R' then
-            hl(0, 'StreamlineMode', { fg = '#D27E99', bg = 'none', bold = true })
-        else
-            hl(0, 'StreamlineMode', { fg = '#AAAAAA', bg = 'none', bold = true })
-        end
-    end,
-})
+-- local function get_fg(group, fallback)
+--     local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
+--     if ok and hl and hl.fg then
+--         return string.format('#%06x', hl.fg)
+--     end
+--     return fallback
+-- end
+--
+-- -- streamline modeclrs
+-- vim.api.nvim_create_autocmd('ModeChanged', {
+--     callback = function()
+--         local ok, mode = pcall(vim.fn.mode)
+--         if not ok then return end
+--
+--         local hl = vim.api.nvim_set_hl
+--
+--         -- change these to pywal colors
+--         -- local colors = require('pywal16.core').get_colors()
+--         if mode == 'n' then
+--             hl(0, 'StreamlineMode', { fg = get_fg('Special', '#D27E99'), bg = 'none', bold = true })
+--         elseif mode == 'i' then
+--             hl(0, 'StreamlineMode', { fg = get_fg('String', '#98BB6C'), bg = 'none', bold = true })
+--         elseif mode == 'v' or mode == 'V' or mode == '\22' then
+--             hl(0, 'StreamlineMode', { fg = get_fg('Type', '#7FB4CA'), bg = 'none', bold = true })
+--         elseif mode == 'R' then
+--             hl(0, 'StreamlineMode', { fg = get_fg('Title', '#D27E99'), bg = 'none', bold = true })
+--         else
+--             hl(0, 'StreamlineMode', { fg = get_fg('Comment', '#AAAAAA'), bg = 'none', bold = true })
+--         end
+--     end,
+-- })
 
 -- :w lint
 vim.api.nvim_create_autocmd('BufWritePost', {

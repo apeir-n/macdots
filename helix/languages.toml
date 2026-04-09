@@ -5,6 +5,15 @@ file-types = ["html"]
 indent = { tab-width = 2, unit = "  " }
 
 [[language]]
+name = "scheme"
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ "steel-language-server" ]
+
+[language-server.steel-language-server]
+command = "steel-language-server"
+args = []
+
+[[language]]
 name = "python"
 scope = "source.py"
 file-types = ["py"]

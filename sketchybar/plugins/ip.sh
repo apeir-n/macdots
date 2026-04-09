@@ -14,7 +14,7 @@ ipshort="${iplong//192.168./}"
 case "$SENDER" in
     "mouse.entered")
         sketchybar                                    \
-            --animate tanh 15                         \
+            --animate tanh 30                         \
             --set "$NAME"                             \
                 label="$iplong"
         ;;

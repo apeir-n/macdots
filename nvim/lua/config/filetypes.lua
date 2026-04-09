@@ -1,7 +1,8 @@
 vim.filetype.add({
     extension = {
         crinkle = 'lua',
-        genexpr = 'genexpr',
+        -- genexpr = 'genexpr',
+        genexpr = 'c',
         applescript = 'applescript',
         scpt = 'applescript',
         maxstx = 'json',
@@ -10,5 +11,5 @@ vim.filetype.add({
     },
 })
 
-vim.treesitter.language.register('genexpr', 'genexpr')
-require('nvim-treesitter.parsers').get_parser_configs().genexpr = {}
+-- vim.treesitter.language.register('genexpr', 'genexpr')
+-- require('nvim-treesitter.parsers').get_parser_configs().genexpr = {}

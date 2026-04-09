@@ -1,6 +1,6 @@
 local M = {}
 
-local function get_fg(group, fallback)
+function M.get_fg(group, fallback)
     local ok, hl = pcall(vim.api.nvim_get_hl_by_name, group, true)
     if ok and hl and hl.foreground then
         return string.format('#%06x', hl.foreground)
@@ -84,16 +84,18 @@ function M.apply()
     hl(0, 'NotifyTRACEBody', { bg = 'none' })
     hl(0, 'NotifyLogTime', { bg = 'none' })
 
-    hl(0, 'StreamlineMode', { fg = get_fg('Constant', '#FFB86C'), bold = true })
-    hl(0, 'StreamlineGitBranch', { fg = get_fg('Comment', '#8BE9FD'), italic = true })
-    hl(0, 'StreamlineFilename', { fg = get_fg('Title', '#F1FA8C') })
-    hl(0, 'StreamlineModified', { fg = get_fg('Error', '#FF5555') })
-    hl(0, 'StreamlineFiletype', { fg = get_fg('Type', '#BD93F9') })
-    hl(0, 'StreamlineIndent', { fg = get_fg('Statement', '#50FA7B') })
-    hl(0, 'StreamlineMacro', { fg = get_fg('Special', '#FF79C6') })
-    hl(0, 'StreamlineCodecompanionText', { fg = get_fg('Special', '#FF79C6') })
-    hl(0, 'StreamlineConformEnabled', { fg = get_fg('String', '#50FA7B') })
-    hl(0, 'StreamlineConformDisabled', { fg = get_fg('Comment', '#6272A4') })
+    -- change these to pywal colors
+    -- local colors = require('pywal16.core').get_colors()
+    hl(0, 'StreamlineMode', { fg = M.get_fg('Constant', '#FFB86C'), bold = true })
+    hl(0, 'StreamlineGitBranch', { fg = M.get_fg('Comment', '#8BE9FD'), italic = true })
+    hl(0, 'StreamlineFilename', { fg = M.get_fg('Title', '#F1FA8C') })
+    hl(0, 'StreamlineModified', { fg = M.get_fg('Error', '#FF5555') })
+    hl(0, 'StreamlineFiletype', { fg = M.get_fg('Type', '#BD93F9') })
+    hl(0, 'StreamlineIndent', { fg = M.get_fg('Statement', '#50FA7B') })
+    hl(0, 'StreamlineMacro', { fg = M.get_fg('Special', '#FF79C6') })
+    hl(0, 'StreamlineCodecompanionText', { fg = M.get_fg('Special', '#FF79C6') })
+    hl(0, 'StreamlineConformEnabled', { fg = M.get_fg('String', '#50FA7B') })
+    hl(0, 'StreamlineConformDisabled', { fg = M.get_fg('Comment', '#6272A4') })
 end
 
 vim.api.nvim_create_autocmd('ColorScheme', {

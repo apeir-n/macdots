@@ -6,7 +6,7 @@ require('themery').setup({
         'gruvbox-material',
         'kanagawa',
         'kanso',
+        'pywal16',
     },
     livePreview = true,
-    --globalAfter = require('config.transparent').apply()
 })

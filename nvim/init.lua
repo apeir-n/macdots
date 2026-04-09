@@ -18,6 +18,7 @@ vim.pack.add({
     'https://github.com/sainnhe/gruvbox-material',
     'https://github.com/rebelot/kanagawa.nvim',
     'https://github.com/webhooked/kanso.nvim',
+    'https://github.com/uZer/pywal16.nvim',
 
     ----------------------------
     --        plugins         --
@@ -45,6 +46,7 @@ vim.pack.add({
     'https://github.com/mrcjkb/rustaceanvim',
     'https://github.com/eandrju/cellular-automaton.nvim',
     'https://github.com/Isrothy/neominimap.nvim',
+    'https://github.com/xiyaowong/transparent.nvim',
 
     ----------------------------
     --         libs           --
@@ -57,11 +59,11 @@ vim.pack.add({
 --          load          --
 ----------------------------
 require('config.autocmd')
---require('config.filetypes') -- something is fucked up idk
+require('config.filetypes')
 require('config.lsp')
 require('config.mappings')
 require('config.options')
-require('config.transparent')
+--require('config.transpo')
 
 require('plugins.alpha')
 require('plugins.autopairs')
@@ -95,3 +97,4 @@ require('plugins.automaton')
 -- require('plugins.gitsigns')
 
 -- 'https://github.com/tidalcycles/vim-tidal',
+

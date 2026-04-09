@@ -5,7 +5,7 @@ require('obsidian').setup {
             path = '~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault',
         }
     },
-    daily_notes = { folder = '__planner' },
+    daily_notes = { folder = 'planner' },
     templates = { folder = 'templates' },
     picker = { name = 'telescope.nvim' },
     open_notes_in = 'current',

@@ -19,17 +19,21 @@ default-yank-register= "+"
     [editor.smart-tab]
     enable = false
 
+    # change it for machines using terminess cuz its ugly
+    # [editor.soft-wrap]
+    # wrap-indicator = ""
+
     [editor.statusline]
     left = [
         "mode",
-        "spinner",
         "file-base-name",
         "file-modification-indicator",
     ]
     right = [
+        "spinner",
         "diagnostics",
+        "read-only-indicator",
         "position",
-        "file-encoding",
         "file-type",
         "total-line-numbers",
     ]
@@ -41,7 +45,6 @@ default-yank-register= "+"
         "warning",
         "error",
     ]
-    separator = "│"
     mode.normal = "NORMAL"
     mode.insert = "INSERT"
     mode.select = "SELECT"
@@ -51,6 +54,23 @@ X = "extend_line_above" # what it should be by default
 H = "goto_previous_buffer"
 L = "goto_next_buffer"
 C-R = ":reload-all"
+Cmd-s = ":write"
 
-    [keys.normal.space]
-    l = ":toggle soft-wrap.enable"
+    [keys.normal.tab]
+    w = ":toggle soft-wrap.enable"
+    s = "split_selection_on_newline"
+    minus = "merge_selections"
+    _ = "merge_consecutive_selections"
+    c = "copy_selection_on_prev_line"
+    h = "flip_selections"
+    H = "ensure_selections_forward"
+
+[keys.select]
+
+    [keys.select.tab]
+    s = "split_selection_on_newline"
+    minus = "merge_selections"
+    _ = "merge_consecutive_selections"
+    c = "copy_selection_on_prev_line"
+    h = "flip_selections"
+    H = "ensure_selections_forward"

@@ -80,36 +80,52 @@ source "$XDG_DATA_HOME/ghcup/env"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
-function c() {
+function c () {
     ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
 }
 
-function s() {
+function s () {
     ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
 }
 
-function v() {
+function v () {
     ${EDITOR:-nvim} "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
 }
 
-function hc() {
+function hc () {
     hx "$HOME/.config/${(j:/:)@}"
 }
 
-function hs() {
+function hs () {
     hx "$HOME/.local/scripts/${(j:/:)@}"
 }
 
-function hv() {
+function hv () {
     hx "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
 }
 
-function y() {
+function y () {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
+}
+
+function forecast () {
+    yr forecast akron -i "${1}" -f fahrenheit
+}
+
+function daily () {
+    local today="$(date '+%y%m%d_%a' | tr '[:upper:]' '[:lower:]')"
+    local today="${today[0,9]}.md"
+    ${EDITOR:-nvim} "${VAULT}/planner/${today}"
+}
+
+function monthly () {
+    local month="$(date '+%y%m')"
+    local month="${month}.md"
+    ${EDITOR:-nvim} "${VAULT}/planner/${month}"
 }
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
@@ -138,7 +154,7 @@ case "$TERM" in
         ;;
     "xterm")            # actual xterm
         local nl=$'\n'
-        PROMPT="${nl}%K{1}%F{0} %D{%I:%M} %K{3} zsh %K{4} %n %K{5} %m %f%k${nl}%F{7}┌── %~${nl}└─%f "
+        PROMPT="${nl}%K{0}%F{9}[ %D{%I:%M} ]%F{10}[ zsh ]%F{12}[ %n ]%F{14}[ %m ]%f%k${nl}%F{7}┌── %~${nl}└─%f "
         ;;
     *)                  # ghostty etc
         eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bird.toml)"
