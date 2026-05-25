@@ -51,12 +51,14 @@ alias stors="astroterm -Cuc -s 400 -a 41.1081 -o -81.5148"
 alias cr="cargo run -q"
 alias ff="fastfetch"
 alias dadda="$HOME/.local/ai/SillyTavern-Launcher/launcher.sh"
-alias xini="nvim $HOME/.xinitrc"
-alias xres="nvim $HOME/.Xresources"
+alias xini="${EDITOR} $HOME/.xinitrc"
+alias xres="${EDITOR} $HOME/.Xresources"
 alias beget="sudo make clean install && make clean"
 alias pa="ping apple.com"
-alias pkglist="brew list --installed-on-request"
+alias pkglist="brew list --installed-on-request | less"
 alias paper="$HOME/.local/bin/paper"
+alias rustc="rustc --edition 2024 -C strip=symbols -C opt-level=s -C panic=abort"
+alias skhd="$HOME/.local/scripts/skhd"
 
 alias o="cd $VAULT && y"
 alias op="cd $VAULT/planner && y"
@@ -67,42 +69,45 @@ alias baby="cd $HOME/.baby && y"
 alias suck="cd $HOME/.local/src/suckless && y"
 alias src="cd $HOME/.local/src && y"
 alias lib="cd $HOME/.local/lib && y"
+alias lang="cd $HOME/.local/opt/_lang && y"
 alias code="cd $HOME/code && y"
 alias comfy="cd $HOME/.local/ai/ComfyUI/output && y"
 alias dl="cd $HOME/Downloads && y"
 alias sdk="cd /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk && y"
+alias preview="wal --preview | sed 1d"
+alias pat="bat -pp"
 
 #etc
+source "$HOME/.local/bin/roym"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source "$XDG_DATA_HOME/ghcup/env"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
 function c () {
-    ${EDITOR:-nvim} "$HOME/.config/${(j:/:)@}"
+    $EDITOR "$HOME/.config/${(j:/:)@}"
 }
 
 function s () {
-    ${EDITOR:-nvim} "$HOME/.local/scripts/${(j:/:)@}"
+    $EDITOR "$HOME/.local/scripts/${(j:/:)@}"
 }
 
 function v () {
-    ${EDITOR:-nvim} "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
+    $EDITOR "${VAULT}/${(j:/:)@}.md"
 }
 
-function hc () {
-    hx "$HOME/.config/${(j:/:)@}"
-}
+# function hc () {
+#     hx "$HOME/.config/${(j:/:)@}"
+# }
 
-function hs () {
-    hx "$HOME/.local/scripts/${(j:/:)@}"
-}
+# function hs () {
+#     hx "$HOME/.local/scripts/${(j:/:)@}"
+# }
 
-function hv () {
-    hx "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/${(j:/:)@}.md"
-}
+# function hv () {
+#     hx "${VAULT}/${(j:/:)@}.md"
+# }
 
 function y () {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -114,18 +119,6 @@ function y () {
 
 function forecast () {
     yr forecast akron -i "${1}" -f fahrenheit
-}
-
-function daily () {
-    local today="$(date '+%y%m%d_%a' | tr '[:upper:]' '[:lower:]')"
-    local today="${today[0,9]}.md"
-    ${EDITOR:-nvim} "${VAULT}/planner/${today}"
-}
-
-function monthly () {
-    local month="$(date '+%y%m')"
-    local month="${month}.md"
-    ${EDITOR:-nvim} "${VAULT}/planner/${month}"
 }
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)

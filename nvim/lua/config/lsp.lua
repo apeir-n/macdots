@@ -3,6 +3,7 @@ vim.lsp.enable({
     'lua_ls',
     'rust_analyzer',
     'steel-language-server',
+    'ocamllsp',
 })
 
 ----i think i prefer c-x c-o to get the menu

@@ -1,5 +1,9 @@
 inherits = "base16_transparent"
 comment = { fg = "gray", modifiers = [ "italic" ] }
-# "ui.selection" = { bg = "black" }
-# "ui.selection" = { bg = "gray" }
 "ui.selection" = { modifiers = [ "reversed" ] }
+
+"info" = { fg = "light-blue", modifiers = [ "reversed" ], underline = { color = "light-blue", style = "dotted" } }
+"hint" = { fg = "light-gray", modifiers = [ "reversed" ], underline = { color = "light-gray", style = "double_line" } }
+"debug" = { fg = "light-gray", modifiers = [ "reversed" ], underline ={ color ="light-gray", style = "dashed" } }
+"warning" = { fg = "light-yellow", modifiers = [ "reversed" ], underline = { color = "light-yellow", style = "curl" } }
+"error" = { fg = "light-red", modifiers = [ "reversed" ], underline = { color ="light-red", style = "curl" } }

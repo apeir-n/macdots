@@ -1,3 +1,41 @@
+# [[grammar]]
+# name = "genexpr"
+# source.path = "/Users/wisdmm/.config/helix/tree-sitter-genexpr/genexpr.dylib"
+
+# [[language]]
+# name = "genexpr"
+# scope = "source.genexpr"
+# file-types = ["genexpr"]
+# indent = { tab-width = 4, unit = "    " }
+# grammar = "genexpr"
+
+[[language]]
+name = "maxmsp"
+scope = "source.maxpat"
+file-types = [
+    "maxdefaults",
+    "maxdefines",
+    "maxhelp",
+    "maxpat",
+    "maxpref",
+    "maxpresets",
+    "maxproto",
+    "maxquery",
+    "maxswatches",
+    "maxtheme",
+    "maxsnip",
+    "maxsnap",
+    "maxstx",
+]
+grammar = "json"
+
+[[language]]
+name = "slip"
+scope = "source.slip"
+file-types = ["slip"]
+grammar = "scheme"
+indent = { tab-width = 2, unit = "  " }
+
 [[language]]
 name = "html"
 scope = "source.html"
@@ -14,16 +52,14 @@ command = "steel-language-server"
 args = []
 
 [[language]]
-name = "python"
-scope = "source.py"
-file-types = ["py"]
-indent = { tab-width = 4, unit = "    " }
-
-[[language]]
 name = "c"
 scope = "source.c"
-file-types = ["h", "c", "cpp"]
+file-types = ["h", "c", "cpp", "xpm"]
 indent = { tab-width = 4, unit = "    " }
+
+[language-server.clangd]
+command = "clangd"
+args = ["--enable-config"]
 
 [[language]]
 name = "rust"
@@ -31,23 +67,24 @@ scope = "source.rs"
 file-types = ["rs"]
 indent = { tab-width = 4, unit = "    " }
 
-#[[language]]
-#name = "sh"
-#scope = "source.sh"
-#file-types = ["sh"]
-#indent = { tab-width = 4, unit = "    " }
-#
-#[[language]]
-#name = "bash"
-#scope = "source.bash"
-#file-types = ["bash"]
-#indent = { tab-width = 4, unit = "    " }
-#
-#[[language]]
-#name = "zsh"
-#scope = "source.zsh"
-#file-types = ["zsh"]
-#indent = { tab-width = 4, unit = "    " }
+[[language]]
+name = "go"
+scope = "source.go"
+file-types = ["go"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "tmux"
+scope = "source.tmux.conf"
+file-types = ["tmux.conf", { glob = "*.tmux.conf" } ]
+grammar = "bash"
+indent = { tab-width = 4, unit = "    " }
+
+# [[language]]
+# name = "zsh"
+# scope = "source.zsh"
+# file-types = ["zsh", "sh", "bash"]
+# indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "json"

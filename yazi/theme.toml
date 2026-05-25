@@ -8,3 +8,39 @@ select_alt = { fg = "yellow", bg = "white" }
 sep_outer = { open = "", close = "" }
 inactive = { fg = "green", bg = "reset", bold = false, italic = true }
 active = { fg = "reset", bg = "green", bold = false }
+
+[icon]
+prepend_conds = [
+    { if = "dir", text = " ", fg = "lightgreen" },
+]
+
+prepend_dirs = [
+    { name = ".arduino", text = " ", fg = "lightgreen" },
+    { name = ".baby", text = "󱣻 ", fg = "lightgreen" },
+    { name = ".config", text = " ", fg = "lightgreen" },
+    { name = ".cache", text = " ", fg = "lightgreen" },
+    { name = ".cpan", text = " ", fg = "lightgreen" },
+    { name = ".docker", text = " ", fg = "lightgreen" },
+    { name = ".local", text = " ", fg = "lightgreen" },
+    { name = ".matplotlib", text = " ", fg = "lightgreen" },
+    { name = ".nursery", text = " ", fg = "lightgreen" },
+    { name = ".ssh", text = " ", fg = "lightgreen" },
+    { name = ".vim", text = " ", fg = "lightgreen" },
+    { name = "Applications", text = " ", fg = "lightgreen" },
+    { name = "code", text = " ", fg = "lightgreen" },
+    { name = "Desktop", text = "󰟀 ", fg = "lightgreen" },
+    { name = "Documents", text = "󰹕 ", fg = "lightgreen" },
+    { name = "dots", text = " ", fg = "lightgreen" },
+    { name = "Downloads", text = " ", fg = "lightgreen" },
+    { name = "Library", text = " ", fg = "lightgreen" },
+    { name = "Movies", text = " ", fg = "lightgreen" },
+    { name = "Music", text = " ", fg = "lightgreen" },
+    { name = "Pictures", text = " ", fg = "lightgreen" },
+    { name = "Public", text = " ", fg = "lightgreen" },
+    { name = "Sites", text = " ", fg = "lightgreen" },
+    { name = "Templates", text = "󱪵 ", fg = "lightgreen" },
+]
+
+prepend_exts = [
+    { name = "xpm", text = "", fg = "lightred" },
+]

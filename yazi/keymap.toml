@@ -38,10 +38,28 @@ desc = "nsxiv_open"
 on = "'"
 run = '''
 shell --block '
-    hx "$1"
+    nvim "$1"
+' -- $1
+'''
+desc = "nvim_open"
+
+[[mgr.prepend_keymap]]
+on = '"'
+run = '''
+shell --block '
+    vim "$1"
 ' -- $1
 '''
 desc = "vim_open"
+
+[[mgr.prepend_keymap]]
+on = "\\"
+run = '''
+shell --block '
+    vis-editor "$1"
+' -- $1
+'''
+desc = "vis_open"
 
 [[mgr.prepend_keymap]]
 on  = [ "+", "x" ]
@@ -50,7 +68,7 @@ shell '
     chmod +x "$1"
 ' -- $1
 '''
-desc = "chmodx"
+desc = "chmod+x"
 
 [[mgr.prepend_keymap]]
 on  = [ "c", "p" ]
@@ -78,9 +96,9 @@ run = "cd ~/.local/scripts"
 desc = "go_scripts"
 
 [[mgr.prepend_keymap]]
-on  = [ "g", "o" ]
+on  = [ "g", "v" ]
 run = 'cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vault'
-desc = "go_obsidian"
+desc = "go_vault"
 
 [[mgr.prepend_keymap]]
 on  = [ "g", "l" ]
@@ -98,9 +116,14 @@ run = "cd ~/.cache/wal"
 desc = "go_pywal"
 
 [[mgr.prepend_keymap]]
-on  = [ "g", "t" ]
-run = "cd ~/Music/tides"
-desc = "go_tidal"
+on  = [ "g", "o" ]
+run = "cd ~/code"
+desc = "go_code"
+
+#[[mgr.prepend_keymap]]
+#on  = [ "g", "t" ]
+#run = "cd ~/Music/tides"
+#desc = "go_tidal"
 
 [[mgr.prepend_keymap]]
 on  = "H"

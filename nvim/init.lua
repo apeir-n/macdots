@@ -97,4 +97,3 @@ require('plugins.automaton')
 -- require('plugins.gitsigns')
 
 -- 'https://github.com/tidalcycles/vim-tidal',
-

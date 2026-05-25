@@ -3,44 +3,44 @@
 (string) @string
 (comment) @comment
 
-(function_definition
+(definition_function
     (identifier) @function)
 
-(function_call
+(call_function
     (identifier) @function.call)
 
-(param_declaration
+(declaration_param
   "Param" @attribute
   (identifier) @variable)
 
-(history_declaration
+(declaration_history
   "History" @property
   (number) @number)
 
-(data_declaration
+(declaration_data
   "Data" @attribute
   (identifier) @variable)
 
-(buffer_declaration
+(declaration_buffer
   "Buffer" @property
   (identifier) @variable)
 
 (assignment
     "=" @operator)
 
-(compound_assignment
+(assignment_compound
     ["+=" "-=" "*=" "/="] @operator)
 
-(binary_expression
+(expression_binary
     ["+" "-" "*" "/" "==" "<" ">" "<=" ">="] @operator)
 
-(for_statement
+(statement_for
     "for" @keyword
     ";" @punctuation.delimiter)
 
-(if_statement
+(statement_if
     "if" @keyword
     "else" @keyword)
 
-(return_statement
+(statement_return
     "return" @keyword)

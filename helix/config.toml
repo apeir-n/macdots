@@ -1,12 +1,17 @@
 theme = "transpo"
 
 [editor]
+popup-border = "all"
 line-number = "relative"
 scroll-lines = 1
 auto-format = false
 bufferline = "multiple"
 color-modes = true
 default-yank-register= "+"
+# end-of-line-diagnostics = "hint"
+
+#     [editor.inline-diagnostics]
+#     cursor-line = "error"
 
     [editor.cursor-shape]
     insert = "bar"
@@ -20,7 +25,7 @@ default-yank-register= "+"
     enable = false
 
     # change it for machines using terminess cuz its ugly
-    # [editor.soft-wrap]
+    # [editor.soft-wrap] 
     # wrap-indicator = ""
 
     [editor.statusline]
@@ -56,6 +61,7 @@ L = "goto_next_buffer"
 C-R = ":reload-all"
 Cmd-s = ":write"
 
+    # my own fresh minor mode
     [keys.normal.tab]
     w = ":toggle soft-wrap.enable"
     s = "split_selection_on_newline"
@@ -64,6 +70,9 @@ Cmd-s = ":write"
     c = "copy_selection_on_prev_line"
     h = "flip_selections"
     H = "ensure_selections_forward"
+    space = ":pipe-to ~/.config/helix/repler.sh"
+    r = ":config-reload"
+    o = ":insert-output ~/.local/scripts/snips/snipper"
 
 [keys.select]
 
@@ -74,3 +83,6 @@ Cmd-s = ":write"
     c = "copy_selection_on_prev_line"
     h = "flip_selections"
     H = "ensure_selections_forward"
+    space = ":pipe-to ~/.config/helix/repler.sh"
+    r = ":config-reload"
+    o = ":insert-output ~/.local/scripts/snips/snipper"
