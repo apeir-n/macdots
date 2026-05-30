@@ -59,9 +59,12 @@ alias pkglist="brew list --installed-on-request | less"
 alias paper="$HOME/.local/bin/paper"
 alias rustc="rustc --edition 2024 -C strip=symbols -C opt-level=s -C panic=abort"
 alias skhd="$HOME/.local/scripts/skhd"
+alias sx="$HOME/.local/share/cargo/bin/hx -c $HOME/.config/steelix/config.toml"
 
 alias o="cd $VAULT && y"
 alias op="cd $VAULT/planner && y"
+#alias pass="nvim ${VAULT}/misc/_sensitiveinfo.md"
+alias pass="v misc _sensitiveinfo"
 alias wp="cd $HOME/Pictures/wallpapers && y"
 alias scripts="cd $HOME/.local/scripts && y"
 alias pc="cd $HOME/.cache/wal && y"
@@ -94,7 +97,7 @@ function s () {
 }
 
 function v () {
-    $EDITOR "${VAULT}/${(j:/:)@}.md"
+    nvim "${VAULT}/${(j:/:)@}.md"
 }
 
 # function hc () {
@@ -146,7 +149,7 @@ case "$TERM" in
         source "$HOME/.local/scripts/prompti"
         ;;
     "xterm")            # actual xterm
-        local nl=$'\n'
+        nl=$'\n'
         PROMPT="${nl}%K{0}%F{9}[ %D{%I:%M} ]%F{10}[ zsh ]%F{12}[ %n ]%F{14}[ %m ]%f%k${nl}%F{7}┌── %~${nl}└─%f "
         ;;
     *)                  # ghostty etc

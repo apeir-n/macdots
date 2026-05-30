@@ -1,3 +1,7 @@
+[status]
+sep_left = { open = " ", close = " " }
+sep_right = { open = " ", close = " " }
+
 [mode]
 normal_main = { fg = "white", bg = "blue" }
 normal_alt = { fg = "blue", bg = "white" }
@@ -27,20 +31,23 @@ prepend_dirs = [
     { name = ".ssh", text = " ", fg = "lightgreen" },
     { name = ".vim", text = " ", fg = "lightgreen" },
     { name = "Applications", text = " ", fg = "lightgreen" },
-    { name = "code", text = " ", fg = "lightgreen" },
     { name = "Desktop", text = "󰟀 ", fg = "lightgreen" },
     { name = "Documents", text = "󰹕 ", fg = "lightgreen" },
     { name = "dots", text = " ", fg = "lightgreen" },
     { name = "Downloads", text = " ", fg = "lightgreen" },
     { name = "Library", text = " ", fg = "lightgreen" },
     { name = "Movies", text = " ", fg = "lightgreen" },
+    { name = "Videos", text = " ", fg = "lightgreen" },
     { name = "Music", text = " ", fg = "lightgreen" },
     { name = "Pictures", text = " ", fg = "lightgreen" },
     { name = "Public", text = " ", fg = "lightgreen" },
+    { name = "Projects", text = " ", fg = "lightgreen" },
+    { name = "scripts", text = " ", fg = "lightgreen" },
     { name = "Sites", text = " ", fg = "lightgreen" },
     { name = "Templates", text = "󱪵 ", fg = "lightgreen" },
 ]
 
 prepend_exts = [
     { name = "xpm", text = "", fg = "lightred" },
+    { name = "ron", text = "", fg = "#a85743" },
 ]

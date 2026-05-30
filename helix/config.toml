@@ -8,6 +8,7 @@ auto-format = false
 bufferline = "multiple"
 color-modes = true
 default-yank-register= "+"
+clipboard-provider = "pasteboard"
 # end-of-line-diagnostics = "hint"
 
 #     [editor.inline-diagnostics]
