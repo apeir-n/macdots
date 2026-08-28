@@ -1,4 +1,4 @@
+.DS_Store
 zshenv
 .stfolder
-helix/runtime/grammars
-tony.tmux.conf
+helix/runtime

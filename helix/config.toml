@@ -1,3 +1,7 @@
+# ======================================================================== #
+# === general ============================================================ #
+# ======================================================================== #
+
 theme = "transpo"
 
 [editor]
@@ -9,81 +13,184 @@ bufferline = "multiple"
 color-modes = true
 default-yank-register= "+"
 clipboard-provider = "pasteboard"
-# end-of-line-diagnostics = "hint"
+file-picker.hidden = false
+smart-tab.enable = false
+lsp.display-inlay-hints = false
+cursor-shape.insert = "bar"
+cursor-shape.normal = "block"
+cursor-shape.select = "underline"
+soft-wrap.enable = false
+soft-wrap.wrap-indicator = " ↪ "
 
-#     [editor.inline-diagnostics]
-#     cursor-line = "error"
+[editor.statusline]
+left = [
+    "mode",
+    "file-base-name",
+    "file-modification-indicator",
+]
+right = [
+    "spinner",
+    "diagnostics",
+    "read-only-indicator",
+    "position",
+    "file-type",
+    "total-line-numbers",
+]
+diagnostics = [
+    "warning",
+    "error",
+]
+workspace-diagnostics = [
+    "warning",
+    "error",
+]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
-    [editor.cursor-shape]
-    insert = "bar"
-    normal = "block"
-    select = "underline"
+# ======================================================================== #
+# === keys =============================================================== #
+# ======================================================================== #
 
-    [editor.file-picker]
-    hidden = false
-
-    [editor.smart-tab]
-    enable = false
-
-    # change it for machines using terminess cuz its ugly
-    # [editor.soft-wrap] 
-    # wrap-indicator = ""
-
-    [editor.statusline]
-    left = [
-        "mode",
-        "file-base-name",
-        "file-modification-indicator",
-    ]
-    right = [
-        "spinner",
-        "diagnostics",
-        "read-only-indicator",
-        "position",
-        "file-type",
-        "total-line-numbers",
-    ]
-    diagnostics = [
-        "warning",
-        "error",
-    ]
-    workspace-diagnostics = [
-        "warning",
-        "error",
-    ]
-    mode.normal = "NORMAL"
-    mode.insert = "INSERT"
-    mode.select = "SELECT"
+[keys.insert]
+C-n = "completion"
 
 [keys.normal]
 X = "extend_line_above" # what it should be by default
 H = "goto_previous_buffer"
 L = "goto_next_buffer"
 C-R = ":reload-all"
-Cmd-s = ":write"
+C-y = [
+    ':sh rm -f /tmp/hxyz',
+    ':insert-output tmux display-popup -w 90%% -h 80%% -d "#{pane_current_path}" -E "yazi --chooser-file=/tmp/hxyz"',
+    ':open %sh{cat /tmp/hxyz}',
+    ':redraw',
+    ':set mouse false',
+    ':set mouse true',
+]
 
-    # my own fresh minor mode
-    [keys.normal.tab]
-    w = ":toggle soft-wrap.enable"
-    s = "split_selection_on_newline"
-    minus = "merge_selections"
-    _ = "merge_consecutive_selections"
-    c = "copy_selection_on_prev_line"
-    h = "flip_selections"
-    H = "ensure_selections_forward"
-    space = ":pipe-to ~/.config/helix/repler.sh"
-    r = ":config-reload"
-    o = ":insert-output ~/.local/scripts/snips/snipper"
+[keys.normal.D]
+L = "kill_to_line_end"
+H = "kill_to_line_start"
+[keys.select.D]
+L = "kill_to_line_end"
+H = "kill_to_line_start"
 
-[keys.select]
+## tmux-less yazi
+# C-y = [
+#     ':sh rm -f /tmp/hxyz',
+#     ':insert-output yazi --chooser-file=/tmp/hxyz',
+#     ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+#     ':open %sh{cat /tmp/hxyz}',
+#     ':redraw',
+#     ':set mouse false',
+#     ':set mouse true',
+# ]
 
-    [keys.select.tab]
-    s = "split_selection_on_newline"
-    minus = "merge_selections"
-    _ = "merge_consecutive_selections"
-    c = "copy_selection_on_prev_line"
-    h = "flip_selections"
-    H = "ensure_selections_forward"
-    space = ":pipe-to ~/.config/helix/repler.sh"
-    r = ":config-reload"
-    o = ":insert-output ~/.local/scripts/snips/snipper"
+[keys.normal.tab]
+w = ":toggle soft-wrap.enable"
+q = ":buffer-close"
+space = ":pipe-to ~/.config/helix/repler.sh"
+r = ":config-reload"
+o = ":insert-output ~/.config/helix/snips/snipper.sh"
+[keys.normal.tab.l]
+s = ":lsp-stop"
+r = ":lsp-restart"
+h = ":set lsp.display-inlay-hints true"
+l = ":set lsp.display-inlay-hints false"
+[keys.select.tab]
+w = ":toggle soft-wrap.enable"
+q = ":buffer-close"
+space = ":pipe-to ~/.config/helix/repler.sh"
+r = ":config-reload"
+o = ":insert-output ~/.config/helix/snips/snipper.sh"
+[keys.select.tab.l]
+s = ":lsp-stop"
+r = ":lsp-restart"
+h = ":set lsp.display-inlay-hints true"
+l = ":set lsp.display-inlay-hints false"
+    
+# ======================================================================== #
+# === keys =============================================================== #
+# === backspace : mode to replace alt keybindings ======================== #
+# ======================================================================== #
+
+[keys.normal.backspace]
+# movement
+"." = "repeat_last_motion"
+
+# changes
+"`" = "switch_to_lowercase"
+"u" = "earlier"
+"U" = "later"
+"d" = "delete_selection_noyank"
+"c" = "change_selection_noyank"
+
+# shell
+"|" = "shell_pipe_to"
+"!" = "shell_append_output"
+
+# selection
+"s" = "split_selection_on_newline"
+"-" = "merge_selections"
+"_" = "merge_consecutive_selections"
+";" = "flip_selections"
+":" = "ensure_selections_forward"
+"," = "remove_primary_selection"
+"C" = "copy_selection_on_prev_line"
+"(" = "rotate_selection_contents_backward"
+")" = "rotate_selection_contents_forward"
+"x" = "shrink_to_line_bounds"
+"J" = "join_selections_space"
+"K" = "remove_selections"
+"o" = "expand_selection"
+"i" = "shrink_selection"
+"p" = "select_prev_sibling"
+"n" = "select_next_sibling"
+"a" = "select_all_siblings"
+"I" = "select_all_children"
+"e" = "move_parent_node_end"
+"b" = "move_parent_node_start"
+
+# search
+"*" = "search_selection"
+
+[keys.select.backspace]
+# movement
+"." = "repeat_last_motion"
+
+# changes
+"`" = "switch_to_lowercase"
+"u" = "earlier"
+"U" = "later"
+"d" = "delete_selection_noyank"
+"c" = "change_selection_noyank"
+
+# shell
+"|" = "shell_pipe_to"
+"!" = "shell_append_output"
+
+# selection
+"s" = "split_selection_on_newline"
+"-" = "merge_selections"
+"_" = "merge_consecutive_selections"
+";" = "flip_selections"
+":" = "ensure_selections_forward"
+"," = "remove_primary_selection"
+"C" = "copy_selection_on_prev_line"
+"(" = "rotate_selection_contents_backward"
+")" = "rotate_selection_contents_forward"
+"x" = "shrink_to_line_bounds"
+"J" = "join_selections_space"
+"K" = "remove_selections"
+"o" = "expand_selection"
+"i" = "shrink_selection"
+"p" = "select_prev_sibling"
+"n" = "select_next_sibling"
+"a" = "select_all_siblings"
+"I" = "select_all_children"
+"e" = "move_parent_node_end"
+"b" = "move_parent_node_start"
+
+# search
+"*" = "search_selection"

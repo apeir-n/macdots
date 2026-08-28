@@ -1,0 +1,705 @@
+ls
+cat ~/.cache/wal/colors | pastel format
+cd ~/.config/nushell
+ls
+c nushell config.nu
+hx ~/.config/nushell/config.nu
+port contents nushell
+man port
+batman port
+port list nushell
+exit
+pwd
+whoami
+ls
+cat
+cat ~/.cache/wal/colors | pastel format
+exit
+def --env y [...args] {<\n>	let tmp = (mktemp -t "yazi-cwd.XXXXXX")<\n>	^yazi ...$args --cwd-file $tmp<\n>	let cwd = (open $tmp)<\n>	if $cwd != $env.PWD and ($cwd | path exists) {<\n>		cd $cwd<\n>	}<\n>	rm -fp $tmp<\n>}
+y
+ls
+ls | sort-by size
+ls | sort-by size | reverse
+def --env y [...args] {<\n>	let tmp = (mktemp -t "yazi-cwd.XXXXXX")<\n>	^yazi ...$args --cwd-file $tmp<\n>	let cwd = (open $tmp)<\n>	if $cwd != $env.PWD and ($cwd | path exists) {<\n>		cd $cwd<\n>	}<\n>	rm -fp $tmp<\n>}
+which nu
+which which
+which open
+which ls
+ps
+which ^ps
+which ^open
+ls
+ls {<\n>| sort-by size<\n>| reverse<\n>}
+ls \
+help commands | explore
+cal
+date
+date now
+which man
+date now | format date "%y%m%d_%a"
+let poop = 3
+echo $poop
+let mo = date now | format date "%y%m%d_%a"
+echo $mo
+let glo = ($"*(mo)*" | into glob)
+let glo = ($"*($mo)*" | into glob)
+echo $glo
+which mo
+curl -s https://api.github.com/repos/nushell/nushell/contributors | jq -c '.[] | {login,contributions}'
+http get https://api.github.com/repos/nushell/nushell/contributors | select login contributions
+"poopoo"
+9
+3; 5; 6;
+3; 5; 6
+let p = 5
+{'name' : 'russ' , 'age' : 2 , 'bumbum' : 'stinky' }
+{'name' : 'russ' , 'age' : 2 , 'bumbum' : 'stinky' } | to json
+{'name' : 'russ' , 'age' : 2 , 'bumbum' : 'stinky' } | to toml
+[one two three]
+[[framework, language]; [Django, Python] [Laravel, PHP]]
+[{name: 'Robert' age: 34 position: 'Designer'}<\n> {name: 'Margaret' age: 30 position: 'Software Developer'}<\n> {name: 'Natalie' age: 50 position: 'Accountant'}<\n>]
+[{name: 'Robert' age: 34 position: 'Designer'}<\n> {name: 'Margaret' age: 30 position: 'Software Developer'}<\n> {name: 'Natalie' age: 50 position: 'Accountant'}<\n>] | select name position
+{name : 'russ' , age : 2 , bumbum : 'stinky' }
+let baby = 'russ'
+baby
+$baby
+$"stinky ($russ)"
+$"stinky ($baby)"
+$"(ansi purple)stinky (ansi blue)($baby)(ansi reset)"
+help ansi
+ps | first 10
+which btop
+btop
+ls
+cd λ
+ls
+start "<|.ml"
+clear
+help match
+let poop = 3
+match poop {<\n>1 => 'poop',<\n>2 => 'pee',<\n>3 => 'fart',<\n>_ => '?',<\n>}
+match 3 {<\n>1 => 'poop',<\n>2 => 'pee',<\n>3 => 'fart',<\n>_ => '?',<\n>}
+match $poop {<\n>1 => 'poop',<\n>2 => 'pee',<\n>3 => 'fart',<\n>_ => '?',<\n>}
+cd ~/.local/opt/_lang
+y
+git clone https://github.com/nushell/nu_scripts.git
+mkdir nu
+y
+diaper
+ls
+y
+ls
+ls | grid
+3 | describe
+3min | describe
+1..2
+ls
+open README.md
+open typos.toml
+ls
+open toolkit.nu
+clear
+let year = (<\n>"01/01/2000"<\n>| parse "{m}/{d}/{y}"<\n>| get y<\n>)
+$year
+config nu --doc | nu-highlight | less -R
+$env.CARGO_HOME
+$env.cargo_home
+$env.config
+$env.config | to nuon
+~
+$env.config | to nuon 
+$env.config | to nuon | save poop.nu
+ls
+hx poop.nu
+config nu
+which mktmp
+whith mktemp
+which mktemp
+y
+fx
+def --env y [...args] {<\n>	let tmp = (mktemp -t "yazi-cwd.XXXXXX")<\n>	^yazi ...$args --cwd-file $tmp<\n>	let cwd = (open $tmp)<\n>	if $cwd != $env.PWD and ($cwd | path exists) {<\n>		cd $cwd<\n>	}<\n>	rm -fp $tmp<\n>}
+y
+ls
+clear
+y
+cd ~/.config/nushell
+y
+$nu.vendor-autoload-dirs
+$nu.user-autoload-dirs
+$nu.default-config-dir
+ansi -l
+clear
+config nu --doc | nu-highlight
+config nu --doc | bat -ppl nu
+config nu --doc | nu-highlight | less -R
+$env.prompt_comand = 'poopoo'
+$env.PROMPT_COMMAND = 'poopoo'
+y
+exit
+help do
+do -i { $env.PWD | path relative-to $nu.home-dir}
+hx ~/.local/scripts/prompti
+hx ~/.local/scripts/prompte
+cd ~/.local/scripts
+yazi
+ansi -l
+yazi
+date now | format date "%x %X"
+date now | format date "%I:%M"
+date now | format date "%I:%M%p"
+date now | format date "%I:%M%P"
+let clk = ([<\n>(ansi reset)<\n>(ansi light_red_reverse)<\n>(date now | format date "%I:%M%P")<\n>] | str join)
+$clk
+let clk = ([<\n>(ansi reset)<\n>(ansi light_red_reverse)<\n>(date now | format date " %I:%M%P ")<\n>] | str join)
+$cl
+$clk
+$SHELL
+$env.SHELL
+let s = [<\n>(ansi yellow_reverse)<\n>(" nu ")<\n>(ansi reset)<\n>]
+$s
+let s = [<\n>(ansi yellow_reverse)<\n>(" nu ")<\n>(ansi reset)<\n>] | str join
+$s
+$env.USER
+$env.HOSTNAME
+$env.LOCALHOST
+$env.HOST
+which host
+which hostname
+hostname
+host
+sys host
+sys users
+uname
+sys
+sys host
+sys host.hostname
+sys host | get hostname
+sys host | select hostname
+sys
+$env.user
+$us
+let us = ([<\n>        (ansi magenta_reverse)<\n>        (sys host | get hostname)<\n>    ] | str join)
+$us
+help str
+help format
+let us = ([<\n>        (ansi magenta_reverse)<\n>        (sys host | get hostname)<\n>    ] | str join)
+$us
+let us = ([<\n>        (ansi magenta_reverse)<\n>        (sys host | get hostname)<\n>    ] | str join)
+let us = ([<\n>(ansi magenta_reverse)<\n>(" ")<\n>(sys host | get hostname)<\n>(" ")<\n>] | str join)
+$us
+$nu.home-dir
+path relative-to $nu.home-dir
+$env.PWD
+$env.PWD | path relative-to $nu.home-dir
+let poop = "hi"
+let pee = "diaperbutt"
+$"($poop) ($pee)"
+$"($poop)\n($pee)"
+exit
+clear
+ls
+j
+exit
+let poop = [<\n>(ansi cyan)<\n>(" diaper ")<\n>(ansi magenta)<\n>(" butt ")<\n>(ansi reset)<\n>] | str join
+$poop
+exit
+let poop = [<\n>(ansi cyan)<\n>(" diaper ")<\n>(ansi magenta)<\n>(" butt ")<\n>(ansi reset)<\n>] | str join
+$env.PROMPT_INDICATOR_VI_INSERT
+exit
+exit
+$env.PROMPT_INDICATOR
+$env.LOGNAME?
+$env.COMPUTERNAME?
+$env.HOSTNAME?
+$env.USERNAME?
+$env.USER?
+char haze
+$nu
+$env
+rg "PROMPT_INDICATOR"
+keybindings list | where type == edits
+help prompt
+sys host | get hostname
+help do
+y
+....
+git clone https://github.com/Sennoma-Nn/nuprm.git
+cd nuprm
+exit
+y
+rg "nuprm-theme"
+$env | get $config.edit_mode
+$env | get $.config.edit_mode
+$env.config
+exit
+ansi -l
+help ansi
+let poop = {<\n>fg : light_blue<\n>bg : bg_blue<\n>}<\n>$"(ansi --escape $poop)hi poopoo!(ansi reset)"
+ansi --escape $poop
+$poop
+exit
+ansi -l
+let poop = {<\n>fg : light_blue<\n>bg : magenta<\n>}<\n>$"(ansi --escape $poop)hi poopoo!(ansi reset)"
+let poop = {<\n>fg : light_blue<\n>bg : blue<\n>}<\n>$"(ansi --escape $poop)hi poopoo!(ansi reset)"
+let poop = {<\n>fg : blue<\n>bg : light_blue<\n>}<\n>$"(ansi --escape $poop)hi poopoo!(ansi reset)"
+let poop = {<\n>fg : blue<\n>bg : light_blue<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = {<\n>fg : yellow<\n>bg : light_yellow<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = {<\n>fg : magenta<\n>bg : light_magenta<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = {<\n>fg : red<\n>bg : light_red<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = {<\n>fg : r<\n>bg : lr<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = {<\n>fg : g<\n>bg : lg<\n>}<\n>$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : g, bg : lg }
+$poop
+$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+exit
+let poop = { fg : b, bg : lb }
+$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+ansi -l
+let poop = { fg : b, bg : lu }
+$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : lu, bg : b }
+$"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : b, bg : lu }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : blue, bg : lu }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : u, bg : lu }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : lu, bg : u }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : m, bg : lm }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : c, bg : lc }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+exit
+$shell
+$clock
+$apple
+$user
+$host
+let c = date now | format date ' %I:%M '
+%c
+$c
+clear
+ansi -l
+config nu
+keybindings --keycodes
+keybindings list --keycodes
+keybindings list
+poop
+lloo
+kk
+jj
+config nu
+config --list
+help config
+config env
+config flatten
+help keybindings
+keybindings listen
+help keybindings
+keybindings list
+help mv
+cd ~/.config/nushell
+keybindings list | where type == events
+k
+keybindings
+keybindings 
+ls
+ls | table -t basic
+ls | table -t compact
+ls | table -t compact_double
+ls | table -t light
+ls | table -t thin
+ls | table -t with_love
+ls | table -t reinforced
+ls | table -t heavy
+ls | table -t none
+ls | table -t psql
+ls | table -t markdown
+ls | table -t dots
+ls | table -t restructured
+ls | table -t ascii_rounded
+ls | table -t basic_compact
+ls | table -t single
+ls | table -t light
+ls | table -t thin
+ls | table -t single
+ls | table -t double
+ls | table -t frameless
+clear
+ls | table -t frameless
+ls
+ansi -l
+ls
+$env.ls_colors?
+$env.LS_COLORS?
+$env.LS_COLORS
+$env.LS_COLORS = "di=48;2;200;0;0;5"
+ls
+mkdir poo
+ls
+$env.LS_COLORS = "di=1;34:*.nu=3;33;46"
+ls
+rm -rf poo
+ls
+$env.LS_COLORS = "di=1;94:*.nu=3;92"
+ls
+$env.LS_COLORS = "di=1;94:*.nu=3;93"
+ls
+mkdir poo
+ls
+$env.LS_COLORS = "di=1;94:ex=3;93:fi=37:ln=3;96"
+ls
+ls ~/.local/scripts
+$env.LS_COLORS = "di=1;94:*.nu=3;93:ex=3;93:fi=37:ln=96"
+ls ~/.local/scripts
+$env.LS_COLORS = "di=1;34:*.nu=3;93:ex=3;93:fi=37:ln=96"
+ls ~/.local/scripts
+cd ~/.local/opt/_lang/shells/nu/
+git clone https://github.com/SuaveIV/nu_plugin_audio.git
+y
+git clone https://github.com/nushell/reedline.git
+port contents nushell
+which port
+help port
+^port contents nushell
+hx ~/.local/scripts/digital-rain.nu
+chmod 755 ~/.local/scripts/digital-rain.nu
+../opt/_lang/shells/nu/
+git clone https://github.com/Euphrasiologist/nu_plugin_plot.git
+git clone https://github.com/fdncred/nu_plugin_emoji.git
+git clone https://github.com/cptpiepmatz/nu-plugin-highlight.git
+git clone https://github.com/fmotalleb/nu_plugin_image.git
+clear
+../..
+git clone https://github.com/tsoding/noq.git
+cd noq
+y
+clear
+cd ~/.config/nushell
+help aliases
+help alias
+alias colors = cat $env.XDG_CACHE_HOME/wal/colors | pastel format
+colors
+cd ~/.config/nushell and y
+$nu.data-dir
+gluon -i
+lang
+cd ~/.local/opt/_lang/gluon
+y
+hx ~/.config/nushell/config.nu ~/.zshrc
+ls<\n>| get 0
+ls
+ls<\n>| get 0<\n>| transpose key value
+ls<\n>| get 0<\n>| transpose key value<\n>| inspect
+ls<\n>| get 0<\n>| transpose key value<\n>| inspect<\n>| each { |x|<\n>$'the val of the ($x.key) field is ($x.value)'<\n>}
+$env.cargo_home
+$env.cargo_home | path dirname 
+$env.cargo_home | path basename 
+$env.cargo_home | path exists 
+$env.cargo_home | path parse 
+$env.cargo_home | path relative-to 
+$env.cargo_home | path relative-to $env.gobin
+$env.gobin
+$env.GOBIN
+$env.GO_BIN<\n>
+$env.GO_PATH<\n>
+$env.cargo_home | path split 
+$env.cargo_home | path self 
+$env.cargo_home | path type 
+$env.cargo_home | path join bin
+ze
+hx ~/.zshenv
+$env.gopath
+$env.cargo_home | path relative-to $env.gopath
+config nu
+clear
+which clear
+vim $nu.env-path
+ps<\n>| where cpu > 0<\n>| sort-by cpu<\n>| reverse
+cargo search shells --limit 10
+{one: 1 two: 2} | describe
+{one: 1 two: 2} | describe | str replace --regex '<.*' ''
+{one: 1 two: 2} | describe | str replace --regex '<.*' 'poopoo'
+{one: 1 two: 2} | describe | str replace --regex '<*' 'poopoo'
+{one: 1 two: 2} | describe | str replace --regex '<.' 'poopoo'
+ssh terminal.shop
+jump
+clear
+help commands
+cal
+cal | table
+cal | table -t basic_compact
+cal | table -t basic
+cal | table -t compact
+cal | table -t with_love
+cal | ast 
+cal | columns 
+help cal
+cal --as-table
+cal --as-table | table -t basic
+cal --as-table | table -t basic_compact
+cal --as-table | table -t basicasic_compact
+cal --as-table | table -t compact
+cal --as-table | table -t default
+cal --as-table | table -t dots
+cal --as-table | table -t defaultots
+cal --as-table | table -t double
+cal --as-table | table -t frameless
+cal --as-table | table -t heavy
+cal --as-table | table -t light
+cal --as-table | table -t markdown
+cal --as-table | table -t none
+cal --as-table | table -t psql
+cal --as-table | table -t reinforced
+cal --as-table | table -t restructured
+cal --as-table | table -t rounded
+cal --as-table | table -t ascii_rounded
+cal --as-table | table -t thin
+help cal
+cal --full-year
+cal --full-year 2026
+cal --full-year 2026 | where fri = 13
+cal -t -y 2026
+cal -t -y
+cal --as-table --full-year 2026
+cal --as-table --full-year 2026 | where fri = 13
+cal --as-table --full-year 2026 | where fr = 13
+cal --as-table --full-year 2026 | where fr == 13
+cal --as-table --full-year 2026 | where fr == 13 | length
+cal
+cal --as-table
+cal | reject mo
+cal --as-table | reject mo
+cal --as-table | reject '#'
+cal --as-table | reject 0
+let c = cal --as-table<\n>$c.1
+let c = cal --as-table<\n>$c.2
+let c = cal --as-table<\n>$c | reject index
+cal --as-table | each { insert index {1000} }
+cal --as-table | each { reject index }
+bit not
+cal --as-table | select index
+cal --as-table | select mo
+cal --as-table | select mo tu
+y
+open baby.json
+open baby.ron
+ls
+ls | enumerate
+ls | enumerate | flatten
+ls
+ls | enumerate | flatten
+cal
+explore regex
+"poopy diaper baby" | str camel-case
+"poopy diaper baby" | str pascal-case
+"poopy diaper baby" | str snake-case
+"poopy diaper baby" | str title-case
+"poopy diaper baby" | str reverse
+help commands | explore
+clear
+[{a:1 b:2} {b:1}]
+[[a, b]; [1, 2]]
+[[a, b]; [1, 2]] | reject a
+[[a, b]; [1, 2]] | reject 1
+[[a, b]; [1, 2] [3, 4]]
+[[a, b]; [1, 2] [3, 4]] | reject 1
+{a: {b: 3, c: 5}}
+{a: {b: 3, c: 5}} | reject a.b
+cd ~/.local/share/fonts
+git clone https://github.com/NanoBillion/gallant.git
+cd gallant/
+y
+nigga yes
+help prompt
+help df
+df
+clear
+help commands | explore
+help sys
+sys host
+sys cpu
+sys mem
+sys temp
+sys mem | get total
+sys mem | get total | describe
+sys mem | get total | describe | $in + 1
+sys mem | get total |  $in + 1
+sys mem | get total | $in + 1 GB
+sys mem | get total | into int
+let total = sys mem | get total | into int
+help sys
+sys mem
+let used = sys mem | get used | into int
+let percentage = used / total
+let percentage = $used / $total
+$percentage
+let m = (sys mem | get available | into float) / (sys mem | get total | into float)
+sys mem | get total | into float
+sys mem | get total | into int
+let m = (sys mem | get available | into int) / (sys mem | get total | into int)
+$m
+1 - $m
+$m * 100
+$m * 100 | into int
+(1 - $m) * 100 | into int
+(1 - $m) * 100 | round
+(1 - $m) * 100 | math round
+help round
+help math
+help math round
+(1 - $m) * 100 | math round --precision 2
+(1 - $m) * 100 | math round --precision 3
+(1 - $m) * 100 | math round --precision 2
+(1 - $m) * 100
+let mem = 1 - (sys mem | get available | into int) / (sys mem | get total | into int)
+$mem
+$mem | math round --precision 2
+$percentage
+$percentage | math round --precision 2
+$percentage | math round --precision 2 | into string 
+$"(ansi light_green) hi poopoo! (ansi reset)"
+hx ~/.cache/wal/ansi.md
+$env.pwd
+$env.pwd | path relative-to $nu.home-dir
+ansi -l
+let poop = { fg : c, bg : lc }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : c, bg : rst }; $"(ansi --escape $poop) hi poopoo! (ansi reset)"
+let poop = { fg : c, bg : rst }; $"(ansi --escape $poop) hi poopoo!"
+ansi -l
+ansi identity
+config nu
+clear
+config nu
+cd ~/.local/share/fonts
+y
+git clone https://github.com/IdreesInc/Monocraft.git
+git clone https://github.com/weiweihuanghuang/fragment-mono.git
+y
+zsh
+y
+git clone https://github.com/ChristinWhite/ligaturizer.git
+y
+../..
+ls
+rm -rf ligaturizer/
+git clone https://github.com/ToxicFrog/Ligaturizer.git
+mv Ligaturizer/ ligaturizer
+y
+git clone https://github.com/ToxicFrog/Ligaturizer.git --recurse-submodules
+y
+mcdu
+ncdu
+cargo binlist list
+du -sh Ligaturizer/
+which du
+du -h
+du Ligaturizer/
+y
+cd Ligaturizer/
+..
+git clone https://github.com/i-tu/Hasklig.git
+du
+cd nerd-fonts/
+y
+ls
+rm -rf patched-fonts/
+y
+du
+du nerd-fonts/
+du nerd-fonts/*
+clear
+y
+git pull
+y
+~
+clear
+$env.vault
+cd $env.vault
+y
+~
+clear
+cd ~/.local/opt/_lang/shells/
+which convert
+gum confirm
+$"(ansi yellow) hi poopoo! (ansi reset)"
+$"(ansi light_yellow) hi poopoo! (ansi reset)"
+$"(ansi light_red) hi poopoo! (ansi reset)"
+$"(ansi light_green) hi poopoo! (ansi reset)"
+$"(ansi light_blue) |> (ansi reset)"
+$"(ansi light_cyan) |> (ansi reset)"
+$"(ansi cyan) |> (ansi reset)"
+cargo run
+alias cr = cargo run -q
+cr
+k
+cr
+clear
+cr
+clear
+alias cr = cargo run -q
+cr
+whoami
+which whoami
+cat ~/.cache/wal/colors | pastel format
+config nu
+clear
+paper
+~/.local/bin/paper
+cat ~/.cache/wal/colors | pastel format
+hx n.sh
+let poop = { fg : c, bg : rst }
+$poop
+let poop = { fg : light_cyan, bg : cyan }
+$poop
+$env.pwd | path relative-to $nu.home-dir
+$env.pwd | describe
+clear
+say "Hi there, I'm looking for Gupta Poopadoop."
+say --help
+say -h
+man say
+say -v ?
+say "Hi there, I'm looking for Gupta Poopadoop." -v Trinoids
+say -v ? | grep en_AU
+say "Hi there, I'm looking for Gupta Poopadoop." -v Karen
+say "Hi there, I'm looking for Gupta Poopadoop." -v agnes
+say "Hi there, I'm looking for Gupta Poopadoop." -v boing
+say "Hi there, I'm looking for Gupta Poopadoop." -v bubbles
+say "Hi there, I'm looking for Gupta Poopadoop."
+say "Hi there, I'm looking for Gupta Poopidoop."
+say "Hi there, I'm looking for Gupta Poopidup."
+say "Hi there, I'm looking for Gupta Pupidoop."
+say "Hi there, I'm looking for Gupta Poupidoop."
+say "Hi there, I'm looking for Gupta Püpidoop."
+say "Hi there, I'm looking for Gupta Püüpidoop."
+say "Hi there, I'm looking for Gupta Pöüpidoop."
+say "ü."
+say "the gay güners are güning."
+say "The Gay Güningen Are Güninger."
+say -v ? | grep DE
+say "The Gay Güningen Are Güninger." -v shelley
+say "The Gay Güningen Are Güninger." -v rocko
+say "The Gay Güningen Are Güninger." -v Rocko
+say "The Gay Güningen Are Güninger." -v Reed
+say "The Gay Güningen Are Güninger." -v sandy
+say "The Gay Güningen Are Güninger." -v anna
+say "The Gay Güningen Are Güninger." -v flo
+say "The Gay Güningen Are Güninger." -v eddy
+say "The Gay Güningen Are Güninger." -v anna
+say "The Gay Güninger Are Güningen." -v anna
+clear
+netwatch
+clear
+say "The Gay Güninger Are Güningen." -v anna
+say "Absolute bajoding."
+say "this newscan of the titanie changes a lot about what we thought happened the night it sank."
+say "The Gay Güninger Are Güningen." -v anna
+say "Absolute baijoding."
+say "Absolute bajoding."
+ansi identity
+$"(ansi cyan) |> (ansi reset)"
+$"(ansi yellow) hi poopoo! (ansi reset)"
+help ansi
+clear
+which stormy
+clear
+$"(ansi yellow) hi poopoo! (ansi reset)"
+ansi help
+help ansi

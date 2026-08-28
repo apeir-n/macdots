@@ -11,8 +11,7 @@ ICON="${icons[$SYMBOL]}"
 [ -z "$ICON" ] && ICON=""
 [ -z "$TEMP" ] && TEMP="0.o"
 
-# full path for cron
-/opt/homebrew/bin/sketchybar    \
-    --set "$NAME"               \
-        icon="$ICON"            \
+sketchybar           \
+    --set "$NAME"    \
+        icon="$ICON" \
         label="$TEMP"

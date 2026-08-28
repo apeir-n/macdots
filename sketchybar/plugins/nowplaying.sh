@@ -9,6 +9,7 @@ if [ "$TITLE" != "" ]; then
     sketchybar                          \
         --animate circ 15               \
         --set "$NAME"                   \
+            icon="󰎈"                    \
             label="$ARTIST | $TITLE"    \
             drawing=on                  \
             background.height=38        \
@@ -19,6 +20,7 @@ else
     sketchybar \
         --animate circ 15               \
         --set "$NAME"                   \
+            icon="󰎊"                    \
             label=""                    \
             label.padding_right=0       \
             label.padding_left=0

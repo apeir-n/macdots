@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-source "$HOME/.cache/wal/sketchybar_wal.sh"
+source "/Users/wisdmm/.cache/wal/sketchybar_wal.sh"
 
 case "$SENDER" in
     "mouse.entered")

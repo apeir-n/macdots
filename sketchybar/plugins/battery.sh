@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 source "plugins/hover.sh"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
 
-if [ "$PERCENTAGE" = "" ]; then
+if [[ "$PERCENTAGE" = "" ]]; then
     exit 0
 fi
 

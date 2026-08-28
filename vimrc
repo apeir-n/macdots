@@ -11,6 +11,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'preservim/nerdtree'
 Plug 'ap/vim-buftabline'
 Plug 'mhinz/vim-startify'
+Plug 'gluon-lang/vim-gluon'
 
 call plug#end()
 
@@ -75,7 +76,7 @@ let g:highlightedyank_highlight_duration = 150
 
 "config_lightline
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': '16color',
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '|', 'right': '|' },
     \ }

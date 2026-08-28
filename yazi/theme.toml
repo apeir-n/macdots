@@ -50,4 +50,8 @@ prepend_dirs = [
 prepend_exts = [
     { name = "xpm", text = "", fg = "lightred" },
     { name = "ron", text = "", fg = "#a85743" },
+    { name = "flo", text = "󱢅", fg = "cyan" },
+    { name = "koto", text = "󰔆", fg = "#b18fbd" },
+    { name = "glu", text = "", fg = "#75bda3" },
+    { name = "hmm", text = "󰗣", fg = "#809966" },
 ]

@@ -1,72 +1,56 @@
-# [[grammar]]
-# name = "genexpr"
-# source.path = "/Users/wisdmm/.config/helix/tree-sitter-genexpr/genexpr.dylib"
+use-grammars = { except = ["gotmpl"] }
 
-# [[language]]
-# name = "genexpr"
-# scope = "source.genexpr"
-# file-types = ["genexpr"]
-# indent = { tab-width = 4, unit = "    " }
-# grammar = "genexpr"
+[[language]]
+name = "genexpr"
+scope = "source.genexpr"
+file-types = [ "genexpr" ]
+indent = { tab-width = 4, unit = "    " }
+grammar = "genexpr"
 
 [[language]]
 name = "scheme"
 scope = "source.scheme"
 injection-regex = "scheme"
-file-types = ["ss", "scm", "sld", "slip"]
-shebangs = ["scheme", "guile", "chicken", "slip"]
+file-types = [ "ss", "scm", "sld", "slip", "flo" ]
+shebangs = [ "scheme", "guile", "chicken", "slip" ]
 comment-token = ";"
 indent = { tab-width = 2, unit = "  " }
-
-[[language]]
-name = "html"
-scope = "source.html"
-file-types = ["html"]
-indent = { tab-width = 4, unit = "    " }
-
-[[language]]
-name = "xml"
-scope = "source.xml"
-file-types = ["xml", "plist", { glob = "fonts.conf" }]
-indent = { tab-width = 4, unit = "    " }
-block-comment-tokens = { start = "<!--", end = "-->" }
-
-[[language]]
-name = "scheme"
-indent = { tab-width = 4, unit = "    " }
-language-servers = [ "steel-language-server" ]
-
 [language-server.steel-language-server]
 command = "steel-language-server"
 args = []
 
 [[language]]
-name = "c"
-scope = "source.c"
-file-types = ["h", "c", "cpp", "xpm"]
+name = "html"
+scope = "source.html"
+file-types = [ "html" ]
 indent = { tab-width = 4, unit = "    " }
 
+[[language]]
+name = "xml"
+scope = "source.xml"
+file-types = [ "xml", "plist", { glob = "fonts.conf" } ]
+indent = { tab-width = 4, unit = "    " }
+block-comment-tokens = { start = "<!--", end = "-->" }
+
+[[language]]
+name = "c"
+scope = "source.c"
+file-types = [ "h", "c", "cpp", "xpm" ]
+indent = { tab-width = 4, unit = "    " }
 [language-server.clangd]
 command = "clangd"
-args = ["--enable-config"]
+args = [ "--enable-config" ]
 
 [[language]]
 name = "rust"
 scope = "source.rs"
-file-types = ["rs"]
+file-types = [ "rs" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "go"
 scope = "source.go"
-file-types = ["go"]
-indent = { tab-width = 4, unit = "    " }
-
-[[language]]
-name = "tmux"
-scope = "source.tmux.conf"
-file-types = ["tmux.conf", { glob = "*.tmux.conf" } ]
-grammar = "bash"
+file-types = [ "go" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
@@ -90,20 +74,20 @@ file-types = [
     "maxsnap",
     "maxstx",
 ]
+comment-token = "//"
 indent = { tab-width = 4, unit = "    " }
 grammar = "json"
-
 
 [[language]]
 name = "toml"
 scope = "source.toml"
-file-types = ["toml"]
+file-types = [ "toml" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "lua"
 scope = "source.lua"
-file-types = ["lua"]
+file-types = [ "lua" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
@@ -123,22 +107,16 @@ file-types = [
   "zlogout",
   "zprofile",
   "zshrc",
-  "eclass",
-  "ebuild",
-  "bazelrc",
-  "Renviron",
-  "zsh-theme",
   "cshrc",
   "tcshrc",
   "bashrc_Apple_Terminal",
   "zshrc_Apple_Terminal",
-  { glob = "i3/config" },
-  { glob = "sway/config" },
   { glob = "*.tmux.conf" },
   { glob = ".bash_history" },
   { glob = ".bash_login" },
   { glob = ".bash_logout" },
   { glob = ".bash_profile" },
+  { glob = ".bash_aliases" },
   { glob = "*.bashrc" },
   { glob = ".profile" },
   { glob = ".zshenv" },
@@ -146,19 +124,165 @@ file-types = [
   { glob = ".zlogout" },
   { glob = ".zprofile" },
   { glob = "*.zshrc" },
-  { glob = ".zimrc" },
-  { glob = "APKBUILD" },
-  { glob = ".bash_aliases" },
-  { glob = ".Renviron" },
   { glob = "*.xprofile" },
   { glob = "*.xinitrc" },
   { glob = "*.xsession" },
   { glob = "*.xsessionrc" },
-  { glob = ".yashrc" },
-  { glob = ".yash_profile" },
-  { glob = ".hushlogin" },
 ]
-shebangs = ["sh", "bash", "dash", "zsh", "ksh"]
+shebangs = [ "sh", "bash", "dash", "zsh", "ksh" ]
 comment-token = "#"
 language-servers = [ "bash-language-server" ]
 indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "nu"
+scope = "source.nu"
+injection-regex = "nu"
+file-types = ["nu", "nuon"]
+shebangs = ["nu"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ "nu-lsp" ]
+
+[[language]]
+name = "roc"
+scope = "source.roc"
+injection-regex = "roc"
+file-types = [ "roc" ]
+shebangs = [ "roc" ]
+comment-token = "#"
+language-servers = [ "roc_language_server" ]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+formatter = { command = "roc", args =[ "format", "--stdin", "--stdout"]}
+[language-server.roc_language_server]
+command = "roc_language_server"
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+[[grammar]]
+name = "roc"
+source = { git = "https://github.com/faldor20/tree-sitter-roc.git", rev = "edc18052a9d7382ac9f9f5bf413db3a78d5ea12c" }
+
+[[language]]
+name = "ocaml"
+scope = "source.ocaml"
+injection-regex = "ocaml"
+file-types = ["ml", "mll"]
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "ocamlformat", args = [
+    "-",
+    "--impl",
+    "--enable-outside-detected-project",
+    "--profile=janestreet"
+] }
+
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+auto-format = false
+
+[[language]]
+name = "applescript"
+scope = "source.applescript"
+file-types = [ "scpt", "applescript" ]
+shebangs = [ "osascript" ]
+indent = { tab-width = 4, unit = "    " }
+grammar = "applescript"
+[[grammar]]
+name = "applescript"
+source = { git = "https://github.com/HelgeSverre/tree-sitter-applescript.git", rev = "1676f5fe99eee6b6532ab6d13559323c48d26190" }
+
+[[language]]
+name = "gluon"
+scope = "source.glu"
+injection-regex = "gluon"
+file-types = [ "glu" ]
+shebangs = [ "gluon" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "gluon_language_server" ]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+formatter = { command = "gluon", args = [ "fmt" ] }
+grammar = "fsharp"
+[language-server.gluon_language_server]
+command = "gluon_language-server"
+
+[[language]]
+name = "lalrpop"
+scope = "source.lalrpop"
+file-types = [ "lalrpop", "lalr" ]
+comment-token = "//"
+indent = { tab-width = 4, unit = "    " }
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'<' = '>'
+'"' = '"'
+[[grammar]]
+name = "lalrpop"
+source = { git = "https://github.com/traxys/tree-sitter-lalrpop.git", rev = "27b0f7bb55b4cabd8f01a933d9ee6a49dbfc2192" }
+
+[[language]]
+name = "squish"
+scope = "source.squ"
+file-types = [ "squ" ]
+block-comment-tokens = { start = "(*", end = "*)" }
+indent = { tab-width = 2, unit = "  " }
+grammar = "squish"
+[[grammar]]
+name = "squish"
+source.path = "/Users/wisdmm/Projects/tree/tree-sitter-squish"
+
+[[language]]
+name = "murmur"
+scope = "source.hmm"
+file-types = [ "hmm" ]
+block-comment-tokens = { start = "(*", end = "*)" }
+indent = { tab-width = 2, unit = "  " }
+grammar = "murmur"
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+[[grammar]]
+name = "murmur"
+source = { git = "https://codeberg.org/wisdmm/tree-sitter-murmur.git", rev = "37fba1dcd037558af4e80fcdd65ed6df409884b1" }
+
+[[language]]
+name = "koto"
+scope = "source.koto"
+file-types = [ "koto" ]
+shebangs = [ "koto" ]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "coffeescript"
+scope = "source.coffee"
+file-types = [ "coffee" ]
+comment-token = "#"
+block-comment-tokens = { start = "###", end = "###" }
+indent = { tab-width = 2, unit = "  " }
+grammar = "coffeescript"
+[[grammar]]
+name = "coffeescript"
+# source = { git = "https://github.com/svkozak/tree-sitter-coffeescript.git", rev = "3bb4dbd68ca926c76b3baadb529da4de3726ea37" }
+# source = { git = "https://github.com/svkozak/tree-sitter-coffeescript.git", rev = "47a4641b6ae0c4e3be9275df756c7dd21eedc8b8" }
+source.path = "/Users/wisdmm/Projects/tree/tree-sitter-coffeescript"
+
+[[language]]
+name = "moonscript"
+scope = "source.moon"
+file-types = [ "moon" ]
+comment-token = "--"
+indent = { tab-width = 2, unit = "  " }
+grammar = "moonscript"
+[[grammar]]
+name = "moonscript"
+source = { git = "https://github.com/DrVilepis/tree-sitter-moonscript.git", rev = "7a6319543394f49fbf05bc7a85cbb5fe7a4013f8" }

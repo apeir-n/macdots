@@ -1,9 +1,20 @@
+[[opener.set-wallpaper]]
+run = "/Users/wisdmm/.local/bin/paperplane %s1"
+for  = "macos"
+desc = "paperplane"
+
 [open]
 prepend_rules = [
     { url = "*.xpm", use = "edit" },
+    { mime = "image/*", use = ["open", "set-wallpaper"] },
 ]
 
 [plugin]
 prepend_previewers = [
     { url = "*.xpm", run = "code" },
+    { mime = "image/{jpeg,png,webp}", run = "zoom 10" },
 ]
+
+[preview]
+max_width  = 5000
+max_height = 5000

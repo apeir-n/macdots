@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 "$HOME/.local/bin/uxnemu" -3x "$HOME/.local/src/100r/roms/myroms/catclock/muted.rom" &
 

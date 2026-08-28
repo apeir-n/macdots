@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 source "plugins/hover.sh"
 
@@ -20,7 +20,7 @@ case "$SENDER" in
         ;;
     *)
         sketchybar                                    \
-            --animate tanh 15                         \
+            --animate tanh 20                         \
             --set "$NAME"                             \
                 label="$ipshort"
         ;;

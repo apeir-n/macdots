@@ -7,3 +7,7 @@ comment = { fg = "gray", modifiers = [ "italic" ] }
 "debug" = { fg = "light-gray", modifiers = [ "reversed" ], underline ={ color ="light-gray", style = "dashed" } }
 "warning" = { fg = "light-yellow", modifiers = [ "reversed" ], underline = { color = "light-yellow", style = "curl" } }
 "error" = { fg = "light-red", modifiers = [ "reversed" ], underline = { color ="light-red", style = "curl" } }
+
+"punctuation.bracket" = "blue"
+"punctuation.delimiter" = "green"
+"tag" = "magenta"

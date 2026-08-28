@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 source "$HOME/.cache/wal/sketchybar_wal.sh"
 

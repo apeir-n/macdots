@@ -1,6 +1,26 @@
-#!/bin/bash
+#!/bin/zsh
 
-source "plugins/hover.sh"
+source "/Users/wisdmm/.cache/wal/sketchybar_wal.sh"
+
+case "$SENDER" in
+    "mouse.entered")
+        sketchybar                                    \
+            --animate tanh 15                         \
+            --set "$NAME"                             \
+                background.color="$foreground"        \
+                icon.color="$color8"                  \
+                label.color="$color8"
+        ;;
+    "mouse.exited")
+        sketchybar                                    \
+            --animate tanh 15                         \
+            --set "$NAME"                             \
+                background.color="$color8"            \
+                background.border_color="$foreground" \
+                icon.color="$foreground"              \
+                label.color="$foreground"
+        ;;
+esac
 
 if [ "$SENDER" = "front_app_switched" ]; then
     ICON="" # default

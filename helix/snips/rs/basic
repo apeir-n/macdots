@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+printf "fn main() {\n"
+printf "    println!(\"{}\", \"hello\");\n"
+printf "}"
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/.cache/wal/sketchybar_wal.sh"
+source "/Users/wisdmm/.cache/wal/sketchybar_wal.sh"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 bar=(
@@ -59,7 +59,7 @@ sketchybar                                                      \
         icon.padding_right=12                                   \
         script="$PLUGIN_DIR/hover.sh"                           \
         popup.background.drawing=on                             \
-        click_script="
+        click_script="                                          \
             sketchybar                                          \
                 --animate circ 6                                \
                 --set apple popup.drawing=toggle                \
@@ -134,6 +134,10 @@ sketchybar                                                      \
         script="$PLUGIN_DIR/front_app.sh"                       \
         padding_left=6                                          \
         popup.background.drawing=on                             \
+        background.color="$color8"                              \
+        background.border_color="$foreground"                   \
+        icon.color="$foreground"                                \
+        label.color="$foreground"                               \
         click_script="                                          \
             sketchybar                                          \
                 --animate circ 6                                \
@@ -178,23 +182,23 @@ sketchybar                                                      \
 ############################ center #############################
 #################################################################
 
-#sketchybar                                                      \
-#    --add item svim.mode e                                      \
-#    --set svim.mode                                             \
-#        popup.align=center                                      \
-#        updates=on width=42                                     \
-#        icon.padding_left=12                                    \
-#        icon.padding_right=12                                   \
-#        script="                                                \
-#            sketchybar --set svim.mode                          \
-#            popup.drawing=off"                                  \
-#    --subscribe svim.mode                                       \
-#        front_app_switched                                      \
-#        window_focus                                            \
-#    --add item svim.cmdline popup.svim.mode                     \
-#    --set svim.cmdline                                          \
-#        label.padding_right=15                                  \
-#        icon=""
+# sketchybar                                                      \
+#     --add item svim.mode e                                      \
+#     --set svim.mode                                             \
+#         popup.align=center                                      \
+#         updates=on width=42                                     \
+#         icon.padding_left=12                                    \
+#         icon.padding_right=12                                   \
+#         script="                                                \
+#             sketchybar --set svim.mode                          \
+#             popup.drawing=off"                                  \
+#     --subscribe svim.mode                                       \
+#         front_app_switched                                      \
+#         window_focus                                            \
+#     --add item svim.cmdline popup.svim.mode                     \
+#     --set svim.cmdline                                          \
+#         label.padding_right=15                                  \
+#         icon=""
 
 sketchybar                                                      \
     --add event music_change com.apple.Music.playerInfo         \
@@ -206,7 +210,7 @@ sketchybar                                                      \
         icon.padding_left=12                                    \
         icon.padding_right=12                                   \
         padding_left=8                                          \
-        script="$PLUGIN_DIR/nowplaying.sh"                      \
+        script="$PLUGIN_DIR/play.sh"                            \
         click_script="                                          \
             open -a Music;                                      \
             sketchybar                                          \
@@ -288,4 +292,4 @@ sketchybar                                                      \
         mouse.entered                                           \
         mouse.exited
 
-sketchybar  --update
+sketchybar --update

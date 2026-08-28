@@ -1,0 +1,20 @@
+profile:                  dark
+
+symbol.foreground:        white
+parenthesis.reverse:      true
+comment.foreground:       light-black
+
+module.foreground:        light-green
+doc.foreground:           blue
+error.foreground:         red
+
+identifier.foreground:    light-blue
+constant.foreground:      light-yellow
+keyword.foreground:       light-red
+char.foreground:          light-magenta
+string.foreground:        green
+quotation.foreground:     yellow
+directive.foreground:     cyan
+
+! uncomment the next line to disable autoload files
+! autoload: false

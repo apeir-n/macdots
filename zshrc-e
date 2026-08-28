@@ -14,11 +14,11 @@ setopt HIST_SAVE_NO_DUPS
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
-# basic
+# zshbasic
 setopt AUTO_CD
 setopt INTERACTIVE_COMMENTS
-# ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${ZSH_VERSION}"
-# mkdir -p "${ZSH_COMPDUMP:h}"
+ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${ZSH_VERSION}"
+mkdir -p "${ZSH_COMPDUMP:h}"
 autoload -Uz compinit && compinit
 autoload -Uz tetriscurses
 zstyle ':completion:*' menu select
@@ -26,11 +26,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^E' edit-command-line
-# bindkey -v
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
-# zle -N vicmd
-# zle -N viins
+bindkey -v
+bindkey '^[[A' history-beginning-search-backward  # Up arrow
+bindkey '^[[B' history-beginning-search-forward   # Down arrow
+bindkey '^L' autosuggest-accept
+zle -N vicmd
+zle -N viins
 
 # alias
 alias ls="eza --icons --group-directories-first --color=auto --oneline --all"
@@ -46,14 +47,13 @@ alias man="batman"
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias zz="${EDITOR} $HOME/.zshrc"
 alias ze="${EDITOR} $HOME/.zshenv"
-alias rz="source $HOME/.zshrc && source $HOME/.zshenv"
+alias rz="source $HOME/.zshrc"
 alias clock="CONF_PATH=$HOME/.config/clock-rs/conf.toml clock-rs"
 alias news="hackernews_tui"
 alias colors="cat $HOME/.cache/wal/colors | pastel format"
 alias stars="astroterm -Cc -s 400 -a 41.1081 -o -81.5148"
 alias stors="astroterm -Cuc -s 400 -a 41.1081 -o -81.5148"
 alias cr="cargo run -q"
-alias ct="cargo test -q"
 alias ff="fastfetch"
 alias dadda="$HOME/.local/ai/SillyTavern-Launcher/launcher.sh"
 alias xini="${EDITOR} $HOME/.xinitrc"
@@ -64,15 +64,12 @@ alias pkglist="brew list --installed-on-request | mmenu"
 alias paper="$HOME/.local/bin/paper"
 alias rust="rustc --edition 2024 -C strip=symbols -C opt-level=s -C panic=abort"
 alias skhd="$HOME/.local/scripts/skhd"
+alias sx="$HOME/.local/share/cargo/bin/hx -c $HOME/.config/steelix/config.toml"
 alias preview="wal --preview | sed 1d"
 alias pat="bat -pp"
 alias ttmux="tmux new -s tmux"
 alias ttiny="tmux new -s tiny"
 alias nnn="nnn -P p"
-alias mpcr="mpc play && mpc pause"
-alias tg="tree-sitter generate"
-alias tp="tree-sitter parse"
-alias th="tree-sitter highlight"
 
 alias o="cd $VAULT && y"
 alias op="cd $VAULT/planner && y"
@@ -84,40 +81,41 @@ alias baby="cd $HOME/.baby && y"
 alias suck="cd $HOME/.local/src/suckless && y"
 alias src="cd $HOME/.local/src && y"
 alias lib="cd $HOME/.local/lib && y"
-alias lang="cd $HOME/.local/lib/lang && y"
+alias lang="cd $HOME/.local/opt/_lang && y"
 alias code="cd $HOME/Projects && y"
 alias comfy="cd $HOME/.local/ai/ComfyUI/output && y"
 alias dl="cd $HOME/Downloads && y"
 alias sdk="cd /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk && y"
-alias helix="cd $HOME/.config/helix && y"
 
 #etc
 source "$HOME/.local/bin/roym"
-source "$HOME/.zsh/pluginit.zsh"
-source <(command fx --init)
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
+source <(command fx --init)
 
-function c {
+function c () {
     $EDITOR "$HOME/.config/${(j:/:)@}"
 }
 
-function s {
+function s () {
     $EDITOR "$HOME/.local/scripts/${(j:/:)@}"
 }
 
-function v {
+function v () {
     nvim "${VAULT}/${(j:/:)@}.md"
 }
 
-function y {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd < "$tmp"
-    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-    rm -f -- "$tmp"
+function y () {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
-function n {
+function n ()
+{
     [ "${NNNLVL:-0}" -eq 0 ] || {
         echo "nnn is already running"
         return
@@ -131,9 +129,26 @@ function n {
     }
 }
 
-function forecast {
+function forecast () {
     yr forecast akron -i "${1}" -f fahrenheit
 }
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
+ZSH_HIGHLIGHT_STYLES[default]="fg=white"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=white"
+ZSH_HIGHLIGHT_STYLES[command]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[precommand]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[function]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[path]="fg=magenta"
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[cursor]="fg=blue"
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]="fg=green"
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=blue"
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=magenta"
 
 case "$TERM" in
     "st-256color")      # simple term
