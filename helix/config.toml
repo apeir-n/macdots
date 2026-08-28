@@ -5,6 +5,7 @@
 theme = "transpo"
 
 [editor]
+rainbow-brackets = true
 popup-border = "all"
 line-number = "relative"
 scroll-lines = 1
